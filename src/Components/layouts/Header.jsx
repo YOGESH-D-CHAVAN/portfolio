@@ -258,7 +258,7 @@ export default function Header() {
                             {link.name}
                           </span>
                           {activeSection === link.href.substring(1) && (
-                            <motion.span className="ml-auto w-3 h-3 bg-slate-900 rounded-full" /> // Active dot color
+                            <motion.span className="ml-auto w-3 h-3 bg-slate-900 rounded-full" /> 
                           )}
                         </motion.a>
                       </motion.li>
