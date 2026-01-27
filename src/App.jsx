@@ -9,14 +9,14 @@ import Experience from './Components/Home/workExperience';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <Header />
       <main>
         <Hero />
         <Skills/>
         <Projects  project={project} />
         <Experience/>
-        {/* <Contact /> */}
+        <Contact />
       </main>
       <Footer />
     </div>

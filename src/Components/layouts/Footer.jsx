@@ -8,13 +8,13 @@ export default function Footer() {
       icon: FiGithub, 
       href: 'https://github.com/Yogesh100-design/',
       label: 'GitHub',
-      color: 'from-gray-900 to-gray-700'
+      color: 'from-stone-800 to-stone-600'
     },
     { 
       icon: FiLinkedin, 
       href: 'https://www.linkedin.com/in/yogesh-chavan-494196316/',
       label: 'LinkedIn',
-      color: 'from-blue-600 to-blue-500'
+      color: 'from-primary-600 to-primary-500'
     },
     { 
       icon: FiMail, 
@@ -28,7 +28,6 @@ export default function Footer() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const year = new Date().getFullYear();
 
-  // Smooth scroll to top
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500);
@@ -37,7 +36,6 @@ export default function Footer() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Magnetic cursor effect
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
@@ -49,7 +47,6 @@ export default function Footer() {
     e.currentTarget.style.transform = 'translate(0px, 0px)';
   };
 
-  // Handle email click
   const handleEmailClick = (e) => {
     e.preventDefault();
     navigator.clipboard.writeText('yogeshchavan1209@gmail.com');
@@ -58,30 +55,30 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white py-16 md:py-24 overflow-hidden">
+    <footer className="relative bg-stone-900 text-white py-16 md:py-24 overflow-hidden">
       
       {/* Animated background blobs */}
       <motion.div
-        className="absolute -top-20 -left-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"
+        className="absolute -top-20 -left-20 w-80 h-80 bg-primary-500/10 rounded-full blur-3xl"
         animate={{ scale: [1, 1.2, 1], x: [0, 30, 0] }}
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute -bottom-20 -right-20 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"
+        className="absolute -bottom-20 -right-20 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl"
         animate={{ scale: [1, 1.1, 1], y: [0, -30, 0] }}
         transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 5 }}
       />
       
       {/* Floating tech symbols */}
       <motion.div
-        className="absolute top-10 left-10 text-blue-400/10 text-8xl pointer-events-none"
+        className="absolute top-10 left-10 text-primary-400/10 text-8xl pointer-events-none"
         animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
       >
         {'</>'}
       </motion.div>
       <motion.div
-        className="absolute bottom-10 right-10 text-purple-400/10 text-6xl pointer-events-none"
+        className="absolute bottom-10 right-10 text-emerald-400/10 text-6xl pointer-events-none"
         animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 3 }}
       >
@@ -90,17 +87,11 @@ export default function Footer() {
 
       <div className="container mx-auto px-4 relative z-10">
         
-        {/* Main Content */}
         <motion.div 
           variants={{
             hidden: { opacity: 0, y: 30 },
             visible: {
-              opacity: 1,
-              y: 0,
-              transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.2
-              }
+              opacity: 1, y: 0, transition: { staggerChildren: 0.15, delayChildren: 0.2 }
             }
           }}
           initial="hidden"
@@ -108,16 +99,15 @@ export default function Footer() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12 md:mb-16"
         >
-          {/* Brand Section */}
           <motion.div className="md:col-span-1 text-center md:text-left">
             <motion.h3
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-2xl md:text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-300 mb-4"
+              className="text-2xl md:text-3xl font-extrabold text-white mb-4"
             >
               Yogesh Chavan
               <motion.span 
-                className="block h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 mt-2 mx-auto md:mx-0"
+                className="block h-0.5 bg-gradient-to-r from-primary-500 to-teal-600 mt-2 mx-auto md:mx-0"
                 initial={{ width: 0 }}
                 animate={{ width: '3rem' }}
                 transition={{ delay: 0.3 }}
@@ -127,7 +117,6 @@ export default function Footer() {
               Building digital experiences that blend innovation with precision.
             </p>
             
-            {/* Animated heart */}
             <motion.div 
               className="inline-flex items-center gap-2 text-sm text-gray-400"
               animate={{ opacity: [0.6, 1, 0.6] }}
@@ -144,7 +133,6 @@ export default function Footer() {
               Open to collaborations and exciting opportunities
             </p>
             
-            {/* Social Links */}
             <div className="flex justify-center md:justify-start gap-4 md:gap-6">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
@@ -173,7 +161,6 @@ export default function Footer() {
                                 transition-all duration-300`}
                       aria-label={social.label}
                     >
-                      {/* Gradient background on hover */}
                       <motion.div
                         className={`absolute inset-0 bg-gradient-to-r ${social.color} opacity-0`}
                         whileHover={{ opacity: 0.9 }}
@@ -186,7 +173,6 @@ export default function Footer() {
               })}
             </div>
             
-            {/* Email tooltip */}
             <AnimatePresence>
               {emailCopied && (
                 <motion.div
@@ -202,7 +188,6 @@ export default function Footer() {
           </motion.div>
         </motion.div>
 
-        {/* Bottom Bar */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -213,7 +198,6 @@ export default function Footer() {
             © {year} Yogesh Chavan. All rights reserved. | Made with <motion.span animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 1.5, repeat: Infinity }}><FiHeart className="inline text-red-400" /></motion.span> and ☕
           </p>
           
-          {/* Scroll to top button */}
           <AnimatePresence>
             {showScrollTop && (
               <motion.button
@@ -223,7 +207,7 @@ export default function Footer() {
                 whileHover={{ scale: 1.2, y: -2 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all border border-white/20 z-50"
+                className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-primary-600 to-primary-500 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all border border-white/20 z-50"
               >
                 <FiArrowUp className="text-white text-lg" />
               </motion.button>
