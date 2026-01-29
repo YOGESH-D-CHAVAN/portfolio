@@ -19,17 +19,44 @@ export default function Header() {
 
   // Active Section Spy
   useEffect(() => {
-    const sections = navLinks.map(link => document.querySelector(link.href));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        });
-      },
-      { threshold: 0.2, rootMargin: "-20% 0px -35% 0px" } // Adjusted for better accuracy
-    );
-    sections.forEach(section => section && observer.observe(section));
-    return () => observer.disconnect();
+    let observer;
+    
+    const observeSections = () => {
+      const sectionElements = navLinks.map(link => document.querySelector(link.href));
+      const allFound = sectionElements.every(el => el !== null);
+      
+      if (allFound) {
+        observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) setActiveSection(entry.target.id);
+            });
+          },
+          { threshold: 0.2, rootMargin: "-20% 0px -35% 0px" }
+        );
+        sectionElements.forEach(section => section && observer.observe(section));
+        return true; // Success
+      }
+      return false; // Metrics not ready
+    };
+
+    // Try immediately
+    if (!observeSections()) {
+      // Retry every 500ms until found
+      const intervalId = setInterval(() => {
+        if (observeSections()) {
+          clearInterval(intervalId);
+        }
+      }, 500);
+      return () => {
+        clearInterval(intervalId);
+        if (observer) observer.disconnect();
+      };
+    }
+
+    return () => {
+      if (observer) observer.disconnect();
+    };
   }, []);
 
   const navLinks = [
@@ -115,9 +142,11 @@ export default function Header() {
                       {/* Active Pill Background */}
                       {isActive && (
                         <motion.div
-                          layoutId="activePill"
                           className="absolute inset-0 bg-stone-900 rounded-full -z-10"
-                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.8 }}
+                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         />
                       )}
                     </a>

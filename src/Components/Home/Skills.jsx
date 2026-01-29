@@ -27,7 +27,6 @@ const SkillCard = ({ skill, index }) => {
 
   return (
     <motion.div
-      layout
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.8 }}
@@ -115,8 +114,10 @@ export default function Skills() {
             >
               {activeCategory === cat && (
                 <motion.div
-                  layoutId="activeCategory"
                   className="absolute inset-0 bg-stone-900 rounded-full"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
@@ -127,7 +128,6 @@ export default function Skills() {
 
         {/* Skills Grid */}
         <motion.div 
-          layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
         >
           <AnimatePresence mode='popLayout'>
