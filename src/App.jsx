@@ -1,4 +1,5 @@
 import { Suspense, lazy } from 'react';
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Header from './Components/layouts/Header';
 import Hero from './Components/Home/Hero';
 
@@ -20,20 +21,22 @@ const PageLoader = () => (
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-stone-50">
-      <Header />
-      <main>
-        <Hero />
-        <Suspense fallback={<PageLoader />}>
-          <Skills/>
-          <Projects project={project} />
-          <Experience/>
-          <Contact />
+    <LazyMotion features={domAnimation}>
+      <div className="min-h-screen bg-stone-50">
+        <Header />
+        <main>
+          <Hero />
+          <Suspense fallback={<PageLoader />}>
+            <Skills/>
+            <Projects project={project} />
+            <Experience/>
+            <Contact />
+          </Suspense>
+        </main>
+        <Suspense fallback={<div className="h-20 bg-stone-950"></div>}>
+          <Footer />
         </Suspense>
-      </main>
-      <Suspense fallback={<div className="h-20 bg-stone-950"></div>}>
-        <Footer />
-      </Suspense>
-    </div>
+      </div>
+    </LazyMotion>
   );
 }

@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
+import { m as motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import profileImg from '../../assets/images/edu.jpg';
 
@@ -146,8 +146,11 @@ const GravityImage = () => {
            {/* The Image */}
            <motion.img 
              src={profileImg} 
+             width="384"
+             height="480"
              alt="Yogesh Chavan - Software Engineer and Full Stack Developer" 
              className="w-full h-full object-cover opacity-90 transition-transform duration-500 scale-105"
+             fetchPriority="high"
              style={{
                // Parallax effect for the image inside the card
                translateX: useTransform(x, [-100, 100], [-10, 10]),
