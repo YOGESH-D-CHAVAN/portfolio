@@ -66,15 +66,6 @@ export default function Header() {
               setIsMenuOpen(false);
             }}
           >
-            <motion.img 
-              src="/yogesh.png" 
-              alt="Yogesh Logo" 
-              className="w-10 h-10 rounded-full object-cover border border-stone-200 shadow-sm"
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              whileHover={{ rotate: 10, scale: 1.1 }}
-            />
             <motion.div className="text-3xl font-bold font-display tracking-tight flex gap-0.5 overflow-hidden">
                {logoText.map((letter, i) => (
                 <motion.span
