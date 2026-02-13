@@ -11,6 +11,22 @@ import college from '../../assets/images/college.webp';
 import news from '../../assets/images/news.jpg';
 import notes from '../../assets/images/notes.webp';
 
+const PLACEHOLDER = 'https://via.placeholder.com/1200x800?text=Project+Preview';
+
+const projectsWithImages = projects.map(project => {
+  let image;
+  switch (project.id) {
+    case 1: image = eduimage; break;
+    case 2: image = money; break;
+    case 3: image = textUtils; break;
+    case 4: image = college; break;
+    case 5: image = news; break;
+    case 6: image = notes; break;
+    default: image = PLACEHOLDER;
+  }
+  return { ...project, image };
+});
+
 const getProjectImage = (project) => {
     return project.image || PLACEHOLDER;    
 };
@@ -274,4 +290,3 @@ export default function Projects() {
     </div>
   );
 }
-
