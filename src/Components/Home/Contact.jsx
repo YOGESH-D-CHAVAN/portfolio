@@ -2,6 +2,8 @@ import { m as motion, AnimatePresence } from 'framer-motion';
 import { FiSend, FiMail, FiMapPin, FiCheck, FiLoader, FiAlertCircle } from 'react-icons/fi';
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import SEO from '../../seo/SEO';
+import SEO_CONFIG from '../../seo/seo.conf';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -12,6 +14,7 @@ export default function Contact() {
   });
   
   const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [isView, setIsView] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -79,6 +82,13 @@ export default function Contact() {
          style: { background: '#333', color: '#fff' },
          duration: 4000
       }}/>
+      <motion.div
+        onViewportEnter={() => setIsView(true)}
+        onViewportLeave={() => setIsView(false)}
+        viewport={{ amount: 0.3, margin: "0px 0px -200px 0px" }}
+        className="absolute inset-0 pointer-events-none" 
+      />
+      {isView && <SEO {...SEO_CONFIG.contact} />}
 
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2" />

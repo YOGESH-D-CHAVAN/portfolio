@@ -153,12 +153,20 @@ export default function Projects() {
   });
 
   const [selectedProject, setSelectedProject] = useState(null);
+  const [isView, setIsView] = useState(false);
 
   // Stacking logic
   const len = projectsWithImages.length;
 
   return (
     <div ref={container} className="relative bg-stone-50" id="projects">
+      <motion.div
+        onViewportEnter={() => setIsView(true)}
+        onViewportLeave={() => setIsView(false)}
+        viewport={{ amount: 0.1, margin: "0px 0px -200px 0px" }}
+        className="absolute inset-0 pointer-events-none" 
+      />
+      {isView && !selectedProject && <SEO {...SEO_CONFIG.projects_section} />}
       
       {/* Intro Section - Standard Scroll */}
       <section className="py-24 px-6 container mx-auto text-center">

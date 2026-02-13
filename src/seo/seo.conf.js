@@ -50,11 +50,32 @@ const SEO_CONFIG = {
       image: "https://yogeshchavan.in/og-image.png",
     },
   },
+  projects_section: {
+    title: "Portfolio Projects & Case Studies | Yogesh Chavan",
+    description:
+      "A curated selection of my work including full-stack web applications, tools, and clones.",
+    url: "https://yogeshchavan.in/#projects",
+    image: "https://yogeshchavan.in/og-image.png",
+  },
   contact: {
     title: "Contact Yogesh Chavan | Full Stack Developer",
     description:
       "Get in touch with Yogesh Chavan for freelance projects, collaborations, or job opportunities.",
     url: "https://yogeshchavan.in/#contact",
+    image: "https://yogeshchavan.in/og-image.png",
+  },
+  skills: {
+    title: "Technical Skills & Tech Stack | Yogesh Chavan",
+    description:
+      "Explore my technical arsenal: MERN Stack, React, Node.js, Next.js, and more.",
+    url: "https://yogeshchavan.in/#skills",
+    image: "https://yogeshchavan.in/og-image.png",
+  },
+  experience: {
+    title: "Work Experience & Professional Journey | Yogesh Chavan",
+    description:
+      "My professional journey from frontend development to full-stack engineering and hackathon victories.",
+    url: "https://yogeshchavan.in/#experience",
     image: "https://yogeshchavan.in/og-image.png",
   },
 };
