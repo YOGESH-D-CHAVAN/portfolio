@@ -1,5 +1,6 @@
 import { m as motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
+import { FaDownload } from 'react-icons/fa';
 import profileImg from '../../assets/images/edu.webp';
 
 // A simple, elegant geometric background pattern
@@ -122,7 +123,7 @@ const GravityImage = () => {
   return (
     <motion.div
       ref={ref}
-      className="relative w-80 h-96 md:w-96 md:h-[30rem] mx-auto perspective-1000 cursor-none"
+      className="relative w-64 h-80 md:w-80 md:h-96 lg:w-96 lg:h-[30rem] mx-auto perspective-1000 cursor-none"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={handleMouseLeave}
@@ -205,7 +206,7 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               {/* SEO ONLY H1 */}
-              <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6 leading-tight">
+              <h1 className="text-lg md:text-xl font-bold text-stone-800 mb-4 leading-tight opacity-80">
                 Yogesh Chavan - Software Engineer & Full Stack Developer
               </h1>
 
@@ -265,15 +266,21 @@ export default function Hero() {
                   </div>
                 </a>
                 
-                <a href="#contact" className="text-stone-600 hover:text-stone-900 font-medium transition-colors">
-                  Contact Me
+                <a 
+                  href="https://drive.google.com/file/d/1XO7qa2cYJIrIpVlF9ecfk6KAMlfuxy0G/view" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-stone-600 hover:text-stone-900 font-medium transition-colors"
+                >
+                  <FaDownload />
+                  Download Resume
                 </a>
               </motion.div>
             </motion.div>
           </div>
 
           {/* Image Section */}
-          <div className="lg:col-span-5 relative hidden lg:block perspective-1000">
+          <div className="lg:col-span-5 relative block w-64 h-64 mx-auto mb-10 lg:w-full lg:h-full lg:mb-0 perspective-1000">
              <GravityImage />
           </div>
         </div>
