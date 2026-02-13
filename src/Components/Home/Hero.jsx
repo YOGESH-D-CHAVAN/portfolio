@@ -205,19 +205,7 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               {/* SEO ONLY H1 */}
-              <h1 
-                style={{ 
-                  position: 'absolute', 
-                  width: '1px', 
-                  height: '1px', 
-                  padding: '0', 
-                  margin: '-1px', 
-                  overflow: 'hidden', 
-                  clip: 'rect(0, 0, 0, 0)', 
-                  whiteSpace: 'nowrap', 
-                  borderWidth: '0' 
-                }}
-              >
+              <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6 leading-tight">
                 Yogesh Chavan - Software Engineer & Full Stack Developer
               </h1>
 
