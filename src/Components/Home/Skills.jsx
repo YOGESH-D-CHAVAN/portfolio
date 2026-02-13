@@ -9,6 +9,8 @@ import {
   SiTailwindcss, SiExpress, SiMongodb, SiMysql, SiPostman, SiTypescript, SiVite
 } from 'react-icons/si';
 import { skillCategories } from '../../data/skills'; 
+import SEO from '../../seo/SEO';
+import SEO_CONFIG from '../../seo/seo.conf';
 
 // --- Icon Mapping ---
 const skillIconMap = {
@@ -59,6 +61,7 @@ const SkillCard = ({ skill, index }) => {
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [filteredSkills, setFilteredSkills] = useState([]);
+  const [isView, setIsView] = useState(false);
 
   // Flatten all skills for "All" view with category metadata
   const allSkills = skillCategories.reduce((acc, cat) => {
@@ -77,7 +80,18 @@ export default function Skills() {
   }, [activeCategory]);
 
   return (
-    <section id="skills" className="py-24 bg-stone-50/50 relative">
+    <section 
+      id="skills" 
+      className="py-24 bg-stone-50/50 relative"
+    >
+      <motion.div
+        onViewportEnter={() => setIsView(true)}
+        onViewportLeave={() => setIsView(false)}
+        viewport={{ amount: 0.3, margin: "0px 0px -200px 0px" }}
+        className="absolute inset-0 pointer-events-none" 
+      />
+      {isView && <SEO {...SEO_CONFIG.skills} />}
+      
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Header */}
