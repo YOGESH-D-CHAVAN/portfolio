@@ -79,6 +79,19 @@ export default function Skills() {
     }
   }, [activeCategory]);
 
+  /* New State for Mobile Toggle */
+  const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const displayedSkills = isMobile && !showAll ? filteredSkills.slice(0, 8) : filteredSkills;
+
   return (
     <section 
       id="skills" 
@@ -121,7 +134,7 @@ export default function Skills() {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => { setActiveCategory(cat); setShowAll(false); }}
               className={`relative px-6 py-2 rounded-full text-sm font-medium transition-colors ${
                 activeCategory === cat ? 'text-white' : 'text-stone-600 hover:text-stone-900 bg-white border border-stone-200'
               }`}
@@ -145,11 +158,23 @@ export default function Skills() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
         >
           <AnimatePresence mode='popLayout'>
-            {filteredSkills.map((skill) => (
+            {displayedSkills.map((skill) => (
               <SkillCard key={skill.name} skill={skill.name} />
             ))}
           </AnimatePresence>
         </motion.ul>
+
+        {/* Mobile Show More Button */}
+        {isMobile && filteredSkills.length > 8 && (
+          <div className="md:hidden mt-8 text-center">
+             <button 
+               onClick={() => setShowAll(!showAll)}
+               className="px-6 py-2 bg-white border border-stone-200 text-stone-600 font-medium rounded-full shadow-sm active:scale-95 transition-all outline-none focus:ring-2 focus:ring-emerald-500/20"
+             >
+                {showAll ? 'Show Less' : 'Show More'}
+             </button>
+          </div>
+        )}
 
       </div>
     </section>
