@@ -44,7 +44,7 @@ const TimelineCard = ({ exp, index }) => {
   const Icon = exp.icon;
 
   return (
-    <div className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group`}>
+    <article className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group`}>
        
        {/* Card Content Section */}
        <div className={`flex items-center w-full md:w-[calc(50%-40px)] ${isOdd ? 'justify-start' : 'justify-end'}`}>
@@ -110,7 +110,7 @@ const TimelineCard = ({ exp, index }) => {
          />
        </div>
 
-    </div>
+    </article>
   );
 };
 

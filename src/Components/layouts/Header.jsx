@@ -171,12 +171,13 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
+          <motion.nav
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl md:hidden flex flex-col justify-center items-center"
+            aria-label="Mobile Navigation"
           >
              <ul className="space-y-6 text-center">
               {navLinks.map((link, i) => (
@@ -210,7 +211,7 @@ export default function Header() {
              >
                 Designed & Built by Yogesh
              </motion.div>
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </>

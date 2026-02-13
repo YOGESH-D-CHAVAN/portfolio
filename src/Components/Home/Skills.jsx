@@ -26,7 +26,7 @@ const SkillCard = ({ skill, index }) => {
   const Icon = skillIconMap[skill] || FaCode;
 
   return (
-    <motion.div
+    <motion.li
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.8 }}
@@ -52,7 +52,7 @@ const SkillCard = ({ skill, index }) => {
         <div className="absolute inset-0 bg-gradient-to-tr from-stone-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
         <div className="absolute bottom-0 left-0 h-1 bg-emerald-500 w-0 group-hover:w-full transition-all duration-500 ease-out" />
       </div>
-    </motion.div>
+    </motion.li>
   );
 };
 
@@ -127,7 +127,7 @@ export default function Skills() {
         </div>
 
         {/* Skills Grid */}
-        <motion.div 
+        <motion.ul 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
         >
           <AnimatePresence mode='popLayout'>
@@ -135,7 +135,7 @@ export default function Skills() {
               <SkillCard key={skill.name} skill={skill.name} />
             ))}
           </AnimatePresence>
-        </motion.div>
+        </motion.ul>
 
       </div>
     </section>

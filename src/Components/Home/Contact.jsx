@@ -85,7 +85,7 @@ export default function Contact() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-stone-300/30 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
+        <motion.header
            initial={{ opacity: 0, y: 30 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
@@ -100,7 +100,7 @@ export default function Contact() {
           <p className="text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto">
             Interested in working together? I'm always open to discussing new projects, creative ideas, or opportunities, or just having a chat about tech.
           </p>
-        </motion.div>
+        </motion.header>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
           
@@ -112,7 +112,7 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="space-y-12"
           >
-             <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 relative overflow-hidden group neon-border-card">
+             <address className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 relative overflow-hidden group neon-border-card not-italic">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-100 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110" />
                 
                 <h3 className="text-2xl font-bold text-stone-900 mb-6 relative z-10">Contact Details</h3>
@@ -138,9 +138,9 @@ export default function Contact() {
                       </div>
                    </div>
                 </div>
-             </div>
+             </address>
 
-             <div className="bg-stone-900 p-8 rounded-3xl text-white relative overflow-hidden neon-border-card">
+             <article className="bg-stone-900 p-8 rounded-3xl text-white relative overflow-hidden neon-border-card">
                 <div className="relative z-10">
                    <h3 className="text-2xl font-bold mb-4">Availability Status</h3>
                    <div className="flex items-center gap-3">
@@ -158,7 +158,7 @@ export default function Contact() {
                 <div className="absolute bottom-0 right-0 p-8 opacity-10">
                    <FiSend size={120} />
                 </div>
-             </div>
+             </article>
           </motion.div>
 
           {/* Form (Right Side) */}

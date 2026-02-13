@@ -64,7 +64,7 @@ export default function Footer() {
           </div>
 
           {/* COLUMN 2: LINKS */}
-          <div className="md:col-span-3 md:pl-8">
+          <nav className="md:col-span-3 md:pl-8" aria-label="Footer Navigation">
              <h4 className="text-stone-100 font-bold mb-6">Navigation</h4>
              <ul className="space-y-4">
                {quickLinks.map((link) => (
@@ -79,12 +79,12 @@ export default function Footer() {
                  </li>
                ))}
              </ul>
-          </div>
+          </nav>
 
           {/* COLUMN 3: CONNECT */}
           <div className="md:col-span-4">
              <h4 className="text-stone-100 font-bold mb-6">Connect</h4>
-             <div className="flex gap-4 mb-8">
+             <nav className="flex gap-4 mb-8" aria-label="Social Links">
                {socialLinks.map((social) => {
                  const Icon = social.icon;
                  return (
@@ -100,7 +100,7 @@ export default function Footer() {
                    </a>
                  );
                })}
-             </div>
+             </nav>
 
              <div className="p-4 rounded-xl bg-stone-900 border border-stone-800">
                 <div className="flex items-center gap-3 mb-2 text-stone-200 font-mono text-sm">
