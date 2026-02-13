@@ -2,6 +2,8 @@ import { m as motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { FaGithub, FaExternalLinkAlt, FaTimes, FaCode, FaArrowRight } from 'react-icons/fa';
 import { projects } from '../../data/projects'; 
+import SEO from '../../seo/SEO';
+import SEO_CONFIG from '../../seo/seo.conf';
 
 // === 1. LOCAL IMAGE IMPORTS ===
 import eduimage from '../../assets/images/Edumedia.webp';
@@ -29,6 +31,15 @@ const projectsWithImages = projects.map(project => {
 
 const getProjectImage = (project) => {
     return project.image || PLACEHOLDER;    
+};
+
+const PROJECT_SEO_KEYS = {
+  1: 'edumedia',
+  2: 'money-manager',
+  3: 'textutils',
+  4: 'svit-college-clone',
+  5: 'news-app',
+  6: 'notenest'
 };
 
 const LazyImage = ({ src, alt, className }) => {
@@ -194,6 +205,10 @@ export default function Projects() {
 
       {/* --- REUSED MODAL FROM PREVIOUS STEP (Keeping logic for consistency) --- */}
       {selectedProject && (
+          <>
+          {PROJECT_SEO_KEYS[selectedProject.id] && SEO_CONFIG.projects[PROJECT_SEO_KEYS[selectedProject.id]] && (
+            <SEO {...SEO_CONFIG.projects[PROJECT_SEO_KEYS[selectedProject.id]]} />
+          )}
           <div 
             className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-stone-950/80 backdrop-blur-sm"
             onClick={() => setSelectedProject(null)}
@@ -286,6 +301,7 @@ export default function Projects() {
                </div>
             </motion.div>
           </div>
+          </>
       )}
     </div>
   );

@@ -2,6 +2,8 @@ import { Suspense, lazy } from 'react';
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import Header from './Components/layouts/Header';
 import Hero from './Components/Home/Hero';
+import SEO from './seo/SEO';
+import SEO_CONFIG from './seo/seo.conf';
 
 // Lazy load components to improve performance
 const Projects = lazy(() => import('./Components/Home/Projects'));
@@ -22,6 +24,7 @@ const PageLoader = () => (
 export default function Home() {
   return (
     <LazyMotion features={domAnimation}>
+      <SEO {...SEO_CONFIG.home} />
       <div className="min-h-screen bg-stone-50">
         <Header />
         <main>
