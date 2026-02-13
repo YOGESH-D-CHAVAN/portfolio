@@ -7,10 +7,44 @@ import SEO_CONFIG from '../../seo/seo.conf';
 const experiences = [
   {
     id: 1,
+    title: "Tasyai",
+    subtitle: "Job Finding Platform",
+    role: "Full Stack Developer",
+    period: "Present",
+    type: "Work",
+    icon: FaLaptopCode,
+    link: "https://tasyai.com",
+    description: "Currently working at Tasyai, a comprehensive job finding platform, contributing to full-stack development and scalable feature implementation.",
+    achievements: [
+      "Developing core features for job seekers and recruiters",
+      "Optimizing platform performance and user experience",
+      "Implementing secure authentication and real-time updates"
+    ],
+    tech: ["React", "Node.js", "Express", "MongoDB", "Redux"]
+  },
+  {
+    id: 2,
+    title: "Unisire",
+    subtitle: "Full Stack Developer",
+    role: "Full Stack Developer",
+    period: "Previous",
+    type: "Work",
+    icon: FaLaptopCode,
+    link: "https://unisire.com",
+    description: "Worked as a Full Stack Developer at Unisire, delivering robust web solutions and maintaining high code quality.",
+    achievements: [
+      "Developed and maintained full-stack web applications",
+      "Collaborated with cross-functional teams to deliver high-quality software",
+      "Ensured responsive design and optimal performance"
+    ],
+    tech: ["Full Stack Development", "Web Architecture"]
+  },
+  {
+    id: 3,
     title: "College Website Developer",
     subtitle: "Frontend Engineering & Git Excellence",
     role: "Frontend Developer",
-    period: "2023 - Present",
+    period: "2023 - 2024",
     type: "Development",
     icon: FaLaptopCode,
     description: "Led the redevelopment of my college's official website with modern, scalable architecture and enterprise-grade version control.",
@@ -23,7 +57,7 @@ const experiences = [
     tech: ["React", "Tailwind CSS", "Git", "GitHub", "Vite"]
   },
   {
-    id: 2,
+    id: 4,
     title: "Smart India Hackathon",
     subtitle: "Full-Stack Innovation Under Pressure",
     role: "Full-Stack Developer",
@@ -41,7 +75,7 @@ const experiences = [
   }
 ];
 
-const TimelineCard = ({ exp, index }) => {
+  const TimelineCard = ({ exp, index }) => {
   const isOdd = index % 2 !== 0;
   const Icon = exp.icon;
 
@@ -65,7 +99,14 @@ const TimelineCard = ({ exp, index }) => {
              <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
                 <div>
                    <span className="text-emerald-600 font-bold text-xs uppercase tracking-wider mb-1 block">{exp.type}</span>
-                   <h3 className="text-xl font-bold text-stone-900 group-hover:text-emerald-600 transition-colors">{exp.title}</h3>
+                   {exp.link ? (
+                     <a href={exp.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group-hover:text-emerald-600 transition-colors">
+                        <h3 className="text-xl font-bold text-stone-900 group-hover:text-emerald-600 transition-colors">{exp.title}</h3>
+                        <FaArrowRight size={12} className="-rotate-45" />
+                     </a>
+                   ) : (
+                     <h3 className="text-xl font-bold text-stone-900 group-hover:text-emerald-600 transition-colors">{exp.title}</h3>
+                   )}
                 </div>
                 <span className="inline-block px-3 py-1 bg-stone-100 text-stone-600 rounded-full text-xs font-mono font-bold whitespace-nowrap">
                    {exp.period}
