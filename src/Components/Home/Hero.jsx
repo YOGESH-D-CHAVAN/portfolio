@@ -1,6 +1,6 @@
 import { m as motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
-import profileImg from '../../assets/images/edu.jpg';
+import profileImg from '../../assets/images/edu.webp';
 
 // A simple, elegant geometric background pattern
 const GridBackground = () => (
@@ -145,7 +145,7 @@ const GravityImage = () => {
         <div className="relative w-full h-full transform-style-3d bg-stone-900">
            {/* The Image */}
            <motion.img 
-             src="/edu.jpg" 
+             src={profileImg} 
              width="384"
              height="480"
              alt="Yogesh Chavan - Software Engineer and Full Stack Developer" 

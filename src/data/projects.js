@@ -6,7 +6,7 @@ export const projects = [
     techStack: ["React", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/Yogesh100-design/EduMedia-Hub",
     live: "https://edumedia-hub-2.onrender.com",
-    image: "../assets/images/Edumedia.jpg"
+    image: "../assets/images/Edumedia.webp"
   },
 
   {
@@ -16,7 +16,7 @@ export const projects = [
     techStack: ["HTML", "CSS", "PHP", "MySQL"],
     github: "https://github.com/Yogesh100-design/MoneyMate",
     live: "https://moneymate-1-cacl.onrender.com/ ",
-    image: "../assets/images/money.jpeg"
+    image: "../assets/images/money.webp"
   },
 
   {
@@ -26,7 +26,7 @@ export const projects = [
     techStack: ["React", "JavaScript", "Bootstrap"],
     github: "https://github.com/Yogesh100-design/textutils",
     live: "https://yogesh100-design.github.io/textutils/",
-    image: "../assets/images/textutils.jpeg"
+    image: "../assets/images/textutils.webp"
   },
 
   {
@@ -36,7 +36,7 @@ export const projects = [
     techStack: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/PRATIK-RAKTATE/SVIT-college-website",
     live: "https://svitchincholi.netlify.app/",
-    image: "../assets/images/college.jpeg"
+    image: "../assets/images/college.webp"
   },
 
   {
@@ -46,7 +46,7 @@ export const projects = [
     techStack: ["React", "API", "CSS"],
     github: "https://github.com/Yogesh100-design/Quicknews",
     live: "",
-    image: "../assets/images/news.webp"
+    image: "../assets/images/news.jpg"
   },
 
   {
@@ -56,7 +56,7 @@ export const projects = [
     techStack: ["React", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/Yogesh100-design/Notenest",
     live: "",
-    image: "../assets/images/notes.jpeg"
+    image: "../assets/images/notes.webp"
   }
 ];
 

@@ -4,28 +4,39 @@ import { FaGithub, FaExternalLinkAlt, FaTimes, FaCode, FaArrowRight } from 'reac
 import { projects } from '../../data/projects'; 
 
 // === 1. LOCAL IMAGE IMPORTS ===
-import eduimage from '../../assets/images/Edumedia.jpg';
-import money from '../../assets/images/money.jpeg';
-import textUtils from '../../assets/images/textutils.jpeg';
-import college from '../../assets/images/college.jpeg';
-import news from '../../assets/images/news.webp';
-import notes from '../../assets/images/notes.jpeg';
-
-const PLACEHOLDER = 'https://via.placeholder.com/1200x800?text=Project+Preview';
-
-const projectImageMap = {
-  edumedia: eduimage,
-  moneymanager: money,
-  textutils: textUtils,
-  svitcollegewebsiteclone: college,
-  newsappreact: news,
-  notenestmern: notes,
-};
+import eduimage from '../../assets/images/Edumedia.webp';
+import money from '../../assets/images/money.webp';
+import textUtils from '../../assets/images/textutils.webp';
+import college from '../../assets/images/college.webp';
+import news from '../../assets/images/news.jpg';
+import notes from '../../assets/images/notes.webp';
 
 const getProjectImage = (project) => {
-  if (!project?.title) return PLACEHOLDER;
-  const key = project.title.toLowerCase().replace(/[^a-z0-9]/g, '');
-  return projectImageMap[key] || PLACEHOLDER;
+    return project.image || PLACEHOLDER;    
+};
+
+const LazyImage = ({ src, alt, className }) => {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div className="relative w-full h-full overflow-hidden bg-stone-100">
+      {/* Loading Skeleton */}
+      {!loaded && (
+        <div className="absolute inset-0 bg-stone-200 animate-pulse z-10" />
+      )}
+      
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        className={`${className} ${loaded ? 'opacity-100' : 'opacity-0'}`}
+        // We handle transitions in the className or via base styles
+        width="800"
+        height="600"
+      />
+    </div>
+  );
 };
 
 // --- STACKING CARD COMPONENT ---
@@ -88,13 +99,10 @@ const Card = ({ i, project, setModal, progress, range, targetScale }) => {
             {/* Right: Image */}
             <div className="w-full md:w-[60%] h-full relative overflow-hidden bg-stone-100 group cursor-pointer">
               <motion.div className="w-full h-full" style={{ scale: imageScale }}>
-                 <img 
+                 <LazyImage 
                     src={getProjectImage(project)} 
                     alt={`Screenshot of ${project.title} project`}
-                    loading="lazy"
-                    width="800"
-                    height="600"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                  />
               </motion.div>
               
@@ -120,7 +128,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   // Stacking logic
-  const len = projects.length;
+  const len = projectsWithImages.length;
 
   return (
     <div ref={container} className="relative bg-stone-50" id="projects">
@@ -145,7 +153,7 @@ export default function Projects() {
 
       {/* Stacking Cards Container */}
       <div className="mt-[10vh]">
-        {projects.map((project, i) => {
+        {projectsWithImages.map((project, i) => {
           // Calculate scale range for creating the stack effect
           const targetScale = 1 - ((len - i) * 0.05);
           const range = [i * (1 / len), 1];
@@ -195,11 +203,11 @@ export default function Projects() {
 
                {/* Left: Interactive Image */}
                <div className="w-full md:w-[55%] h-64 md:h-full relative bg-stone-900 group">
-                  <img 
-                    src={getProjectImage(selectedProject)} 
-                    alt={`Detail view of ${selectedProject.title}`}
-                    className="w-full h-full object-contain md:object-cover opacity-90"
-                  />
+                   <LazyImage 
+                     src={getProjectImage(selectedProject)} 
+                     alt={`Detail view of ${selectedProject.title}`}
+                     className="w-full h-full object-contain md:object-cover transition-opacity duration-500"
+                   />
                </div>
 
                {/* Right: Content */}
