@@ -17,16 +17,18 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: 'Yogesh Chavan - Software Engineer & Full Stack Developer',
-  description: 'Official Portfolio of Yogesh Chavan. A Software Engineer and Full Stack Developer building scalable web applications with React, Node.js, and modern tech.',
-  keywords: 'Yogesh Chavan, Yogesh Developer, Yogesh Chavan Portfolio',
+  title: 'Yogesh Chavan | Software Engineer & Full Stack Developer Portfolio',
+  description: 'Yogesh Chavan is a Full Stack Developer and Software Engineer specializing in building scalable web applications with React, Node.js, and modern technologies. Explore the portfolio of Yogesh Chavan to see his latest projects and work experience.',
+  keywords: 'Yogesh Chavan, Yogesh Chavan Developer, Yogesh Chavan Portfolio, Software Engineer Yogesh Chavan, Full Stack Developer India, Yogesh Chavan React Developer',
   authors: [{ name: 'Yogesh Chavan' }],
   icons: {
     icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
   },
   openGraph: {
-    title: 'Yogesh Chavan | Software Engineer & Full Stack Developer',
-    description: 'Official Portfolio of Yogesh Chavan. A Software Engineer and Full Stack Developer building scalable web applications.',
+    title: 'Yogesh Chavan | Software Engineer & Full Stack Developer Portfolio',
+    description: 'Explore the expert portfolio of Yogesh Chavan, a Software Engineer and Full Stack Developer building scalable, high-performance web applications.',
     url: 'https://yogeshchavan.in/',
     siteName: 'Yogesh Chavan Portfolio',
     images: [
@@ -34,6 +36,7 @@ export const metadata = {
         url: 'https://yogeshchavan.in/og-image.png',
         width: 1200,
         height: 630,
+        alt: 'Yogesh Chavan - Software Engineer & Full Stack Developer Portfolio',
       },
     ],
     locale: 'en_US',
@@ -41,12 +44,24 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Yogesh Chavan | Software Engineer & Full Stack Developer',
-    description: 'Official Portfolio of Yogesh Chavan. A Software Engineer and Full Stack Developer building scalable web applications.',
+    title: 'Yogesh Chavan | Software Engineer & Full Stack Developer Portfolio',
+    description: 'Professional portfolio and case studies of Yogesh Chavan, a Full Stack Developer and Software Engineer.',
     images: ['https://yogeshchavan.in/og-image.png'],
+    creator: '@YogeshChavan',
   },
   alternates: {
     canonical: 'https://yogeshchavan.in',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   verification: {
     google: 'UBHmZkftZG1VqbZC7JsSqm0aFGE9xDTKMpSWvSSqdGw',
