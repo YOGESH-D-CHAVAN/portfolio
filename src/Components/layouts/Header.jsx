@@ -1,3 +1,5 @@
+"use client";
+
 import { m as motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
@@ -158,6 +160,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <motion.button
+            suppressHydrationWarning
             className="md:hidden relative z-50 p-2 text-stone-900 focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             whileTap={{ scale: 0.9 }}

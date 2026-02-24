@@ -21,11 +21,11 @@ const SEO_CONFIG = {
       url: "https://yogeshchavan.in/projects/money-manager",
       image: "https://yogeshchavan.in/og-image.png",
     },
-    textutils: {
-      title: "TextUtils - Text Manipulation Tool | Yogesh Chavan",
+    vault: {
+      title: "Vault - Full Stack Media Discovery Platform | Yogesh Chavan",
       description:
-        "A text manipulation tool with features like uppercase, lowercase, remove spaces, and more. Built with React and Bootstrap.",
-      url: "https://yogeshchavan.in/projects/textutils",
+        "Vault is a premium platform for discovering high-quality images, videos, and GIFs. Built with React, Redux Toolkit, and Framer Motion.",
+      url: "https://yogeshchavan.in/projects/vault",
       image: "https://yogeshchavan.in/og-image.png",
     },
     "svit-college-clone": {

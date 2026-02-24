@@ -1,9 +1,9 @@
+"use client";
+
 import { m as motion, AnimatePresence } from 'framer-motion';
 import { FiSend, FiMail, FiMapPin, FiCheck, FiLoader, FiAlertCircle } from 'react-icons/fi';
 import { useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
-import SEO from '../../seo/SEO';
-import SEO_CONFIG from '../../seo/seo.conf';
+import toast from 'react-hot-toast';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -78,17 +78,13 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-24 bg-stone-50 relative overflow-hidden">
-      <Toaster position="bottom-center" toastOptions={{
-         style: { background: '#333', color: '#fff' },
-         duration: 4000
-      }}/>
       <motion.div
         onViewportEnter={() => setIsView(true)}
         onViewportLeave={() => setIsView(false)}
         viewport={{ amount: 0.3, margin: "0px 0px -200px 0px" }}
         className="absolute inset-0 pointer-events-none" 
       />
-      {isView && <SEO {...SEO_CONFIG.contact} />}
+      {/* SEO handled by Next.js layout */}
 
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2" />
@@ -183,62 +179,67 @@ export default function Contact() {
                <div className="grid md:grid-cols-2 gap-6">
                  <div className="relative group">
                    <label htmlFor="name" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Your Name</label>
-                   <input
-                     id="name"
-                     type="text"
-                     name="name"
-                     value={formData.name}
-                     onChange={handleChange}
-                     disabled={status ===('submitting' || 'success')}
-                     className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
-                     placeholder="John Doe"
-                   />
+                    <input
+                      id="name"
+                      suppressHydrationWarning
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      disabled={status ===('submitting' || 'success')}
+                      className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
+                      placeholder="John Doe"
+                    />
                  </div>
                  <div className="relative group">
                    <label htmlFor="email" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Your Email</label>
-                   <input
-                     id="email"
-                     type="email"
-                     name="email"
-                     value={formData.email}
-                     onChange={handleChange}
-                     disabled={status ===('submitting' || 'success')}
-                     className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
-                     placeholder="john@example.com"
-                   />
+                    <input
+                      id="email"
+                      suppressHydrationWarning
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      disabled={status ===('submitting' || 'success')}
+                      className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
+                      placeholder="john@example.com"
+                    />
                  </div>
                </div>
                
                <div className="relative group">
                  <label htmlFor="subject" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Subject</label>
-                 <input
-                   id="subject"
-                   type="text"
-                   name="subject"
-                   value={formData.subject}
-                   onChange={handleChange}
-                   disabled={status ===('submitting' || 'success')}
-                   className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
-                   placeholder="Project Inquiry"
-                 />
+                  <input
+                    id="subject"
+                    suppressHydrationWarning
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    disabled={status ===('submitting' || 'success')}
+                    className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
+                    placeholder="Project Inquiry"
+                  />
                </div>
                
                <div className="relative group">
                  <label htmlFor="message" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Message</label>
-                 <textarea
-                   id="message"
-                   name="message"
-                   rows="4"
-                   value={formData.message}
-                   onChange={handleChange}
-                   disabled={status ===('submitting' || 'success')}
-                   className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all resize-none font-medium"
-                   placeholder="Tell me about your project..."
-                 />
+                  <textarea
+                    id="message"
+                    suppressHydrationWarning
+                    name="message"
+                    rows="4"
+                    value={formData.message}
+                    onChange={handleChange}
+                    disabled={status ===('submitting' || 'success')}
+                    className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all resize-none font-medium"
+                    placeholder="Tell me about your project..."
+                  />
                </div>
                
                <div className="pt-4">
                  <motion.button
+                   suppressHydrationWarning
                    whileHover={status === 'idle' ? { scale: 1.02 } : {}}
                    whileTap={status === 'idle' ? { scale: 0.98 } : {}}
                    disabled={status !== 'idle'}

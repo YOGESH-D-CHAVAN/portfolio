@@ -1,6 +1,9 @@
+"use client";
+
 import { m as motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { FaDownload } from 'react-icons/fa';
+import Image from 'next/image';
 import profileImg from '../../assets/images/edu.webp';
 
 // A simple, elegant geometric background pattern
@@ -120,6 +123,10 @@ const GravityImage = () => {
     y.set(0);
   };
 
+  // Parallax effect for the image inside the card
+  const imgTranslateX = useTransform(x, [-100, 100], [-10, 10]);
+  const imgTranslateY = useTransform(y, [-100, 100], [-10, 10]);
+
   return (
     <motion.div
       ref={ref}
@@ -145,19 +152,21 @@ const GravityImage = () => {
       >
         <div className="relative w-full h-full transform-style-3d bg-stone-900">
            {/* The Image */}
-           <motion.img 
-             src={profileImg} 
-             width="384"
-             height="480"
-             alt="Yogesh Chavan - Software Engineer and Full Stack Developer" 
-             className="w-full h-full object-cover opacity-90 transition-transform duration-500 scale-105"
-             fetchPriority="high"
+           <motion.div
              style={{
-               // Parallax effect for the image inside the card
-               translateX: useTransform(x, [-100, 100], [-10, 10]),
-               translateY: useTransform(y, [-100, 100], [-10, 10]),
+               translateX: imgTranslateX,
+               translateY: imgTranslateY,
              }}
-           />
+             className="w-full h-full"
+           >
+             <Image 
+               src={profileImg} 
+               alt="Yogesh Chavan - Software Engineer and Full Stack Developer" 
+               fill
+               className="object-cover opacity-90 transition-transform duration-500 scale-105"
+               priority
+             />
+           </motion.div>
            
            {/* Glass overlay reflection */}
            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-overlay" />

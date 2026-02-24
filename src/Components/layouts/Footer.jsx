@@ -1,3 +1,5 @@
+"use client";
+
 import { m as motion, AnimatePresence } from "framer-motion";
 import { FiGithub, FiLinkedin, FiMail, FiArrowUp, FiTerminal } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
