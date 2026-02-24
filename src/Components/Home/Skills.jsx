@@ -1,3 +1,5 @@
+"use client";
+
 import { m as motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { 
@@ -9,8 +11,6 @@ import {
   SiTailwindcss, SiExpress, SiMongodb, SiMysql, SiPostman, SiTypescript, SiVite
 } from 'react-icons/si';
 import { skillCategories } from '../../data/skills'; 
-import SEO from '../../seo/SEO';
-import SEO_CONFIG from '../../seo/seo.conf';
 
 // --- Icon Mapping ---
 const skillIconMap = {
@@ -103,7 +103,7 @@ export default function Skills() {
         viewport={{ amount: 0.3, margin: "0px 0px -200px 0px" }}
         className="absolute inset-0 pointer-events-none" 
       />
-      {isView && <SEO {...SEO_CONFIG.skills} />}
+      {/* SEO handled by Next.js layout */}
       
       <div className="container mx-auto px-6 relative z-10">
         
@@ -134,6 +134,7 @@ export default function Skills() {
           {categories.map((cat) => (
             <button
               key={cat}
+              suppressHydrationWarning
               onClick={() => { setActiveCategory(cat); setShowAll(false); }}
               className={`relative px-6 py-2 rounded-full text-sm font-medium transition-colors ${
                 activeCategory === cat ? 'text-white' : 'text-stone-600 hover:text-stone-900 bg-white border border-stone-200'

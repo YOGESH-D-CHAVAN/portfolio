@@ -21,12 +21,12 @@ export const projects = [
 
   {
     id: 3,
-    title: "TextUtils",
-    description: "A text manipulation tool with features like uppercase, lowercase, remove spaces, and more.",
-    techStack: ["React", "JavaScript", "Bootstrap"],
-    github: "https://github.com/Yogesh100-design/textutils",
-    live: "https://yogesh100-design.github.io/textutils/",
-    image: "../assets/images/textutils.webp"
+    title: "Vault",
+    description: "Vault is a premium platform for high-quality images, videos, and GIFs, featuring a seamless discovery experience.",
+    techStack: ["React", "Redux Toolkit", "Framer Motion", "Tailwind CSS"],
+    github: "https://github.com/YOGESH-D-CHAVAN/React-Redux-Toolkit",
+    live: "https://lnkd.in/dVJa_E86",
+    image: "../assets/images/vault.webp"
   },
 
   {

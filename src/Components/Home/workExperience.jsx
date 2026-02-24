@@ -1,8 +1,8 @@
+"use client";
+
 import { m as motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { FaBuilding, FaCheck, FaArrowRight, FaLaptopCode, FaTrophy } from 'react-icons/fa';
-import SEO from '../../seo/SEO';
-import SEO_CONFIG from '../../seo/seo.conf';
 
 const experiences = [
   {
@@ -179,7 +179,7 @@ export default function Experience() {
         viewport={{ amount: 0.3, margin: "0px 0px -200px 0px" }}
         className="absolute inset-0 pointer-events-none" 
       />
-      {isView && <SEO {...SEO_CONFIG.experience} />}
+      {/* SEO handled by Next.js layout */}
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-24">
            <motion.h2 

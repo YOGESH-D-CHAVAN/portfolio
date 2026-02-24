@@ -1,14 +1,16 @@
+"use client";
+
 import { m as motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { FaGithub, FaExternalLinkAlt, FaTimes, FaCode, FaArrowRight } from 'react-icons/fa';
+import Image from 'next/image';
 import { projects } from '../../data/projects'; 
-import SEO from '../../seo/SEO';
-import SEO_CONFIG from '../../seo/seo.conf';
 
 // === 1. LOCAL IMAGE IMPORTS ===
 import eduimage from '../../assets/images/Edumedia.webp';
 import money from '../../assets/images/money.webp';
-import textUtils from '../../assets/images/textutils.webp';
+// import textUtils from '../../assets/images/textutils.webp'; // Removed
+const vaultImage = 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1200&auto=format&fit=crop'; // Vault Placeholder
 import college from '../../assets/images/college.webp';
 import news from '../../assets/images/news.jpg';
 import notes from '../../assets/images/notes.webp';
@@ -20,7 +22,7 @@ const projectsWithImages = projects.map(project => {
   switch (project.id) {
     case 1: image = eduimage; break;
     case 2: image = money; break;
-    case 3: image = textUtils; break;
+    case 3: image = vaultImage; break;
     case 4: image = college; break;
     case 5: image = news; break;
     case 6: image = notes; break;
@@ -36,31 +38,21 @@ const getProjectImage = (project) => {
 const PROJECT_SEO_KEYS = {
   1: 'edumedia',
   2: 'money-manager',
-  3: 'textutils',
+  3: 'vault',
   4: 'svit-college-clone',
   5: 'news-app',
   6: 'notenest'
 };
 
 const LazyImage = ({ src, alt, className }) => {
-  const [loaded, setLoaded] = useState(false);
-
   return (
     <div className="relative w-full h-full overflow-hidden bg-stone-100">
-      {/* Loading Skeleton */}
-      {!loaded && (
-        <div className="absolute inset-0 bg-stone-200 animate-pulse z-10" />
-      )}
-      
-      <img
+      <Image
         src={src}
         alt={alt}
-        loading="lazy"
-        onLoad={() => setLoaded(true)}
-        className={`${className} ${loaded ? 'opacity-100' : 'opacity-0'}`}
-        // We handle transitions in the className or via base styles
-        width="800"
-        height="600"
+        fill
+        className={`${className} object-cover`}
+        sizes="(max-width: 768px) 100vw, 50vw"
       />
     </div>
   );
@@ -105,6 +97,7 @@ const Card = ({ i, project, setModal, progress, range, targetScale }) => {
                
                <div className="flex items-center gap-4 mt-6 md:mt-0">
                   <button 
+                     suppressHydrationWarning
                      className="flex items-center gap-2 text-stone-900 font-bold border-b-2 border-stone-900 pb-1 hover:text-emerald-600 hover:border-emerald-600 transition-colors"
                      aria-label={`View case study for ${project.title}`}
                   >
@@ -166,7 +159,7 @@ export default function Projects() {
         viewport={{ amount: 0.1, margin: "0px 0px -200px 0px" }}
         className="absolute inset-0 pointer-events-none" 
       />
-      {isView && !selectedProject && <SEO {...SEO_CONFIG.projects_section} />}
+      {/* SEO handled by Next.js layout */}
       
       {/* Intro Section - Standard Scroll */}
       <section className="py-24 px-6 container mx-auto text-center">
@@ -214,9 +207,7 @@ export default function Projects() {
       {/* --- REUSED MODAL FROM PREVIOUS STEP (Keeping logic for consistency) --- */}
       {selectedProject && (
           <>
-          {PROJECT_SEO_KEYS[selectedProject.id] && SEO_CONFIG.projects[PROJECT_SEO_KEYS[selectedProject.id]] && (
-            <SEO {...SEO_CONFIG.projects[PROJECT_SEO_KEYS[selectedProject.id]]} />
-          )}
+          {/* SEO handled by Next.js layout */}
           <div 
             className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-stone-950/80 backdrop-blur-sm"
             onClick={() => setSelectedProject(null)}
@@ -233,6 +224,7 @@ export default function Projects() {
             >
                {/* Close Button Mobile */}
                <button 
+                suppressHydrationWarning
                 onClick={() => setSelectedProject(null)}
                 className="absolute top-4 right-4 z-50 bg-white/50 p-2 rounded-full md:hidden"
                 aria-label="Close modal"
@@ -245,7 +237,6 @@ export default function Projects() {
                    <LazyImage 
                      src={getProjectImage(selectedProject)} 
                      alt={`Detail view of ${selectedProject.title}`}
-                     className="w-full h-full object-contain md:object-cover transition-opacity duration-500"
                    />
                </div>
 
@@ -261,6 +252,7 @@ export default function Projects() {
                          </div>
                     </div>
                     <button 
+                        suppressHydrationWarning
                         onClick={() => setSelectedProject(null)}
                         className="hidden md:block text-stone-400 hover:text-stone-900 transition-colors"
                         aria-label="Close modal"
