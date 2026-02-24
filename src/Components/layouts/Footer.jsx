@@ -94,7 +94,7 @@ export default function Footer() {
                      key={social.label}
                      href={social.href}
                      target="_blank"
-                     rel="noreferrer"
+                     rel="noreferrer me"
                      className="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center text-stone-400 hover:bg-emerald-600 hover:text-white transition-all duration-300 border border-stone-800 hover:border-emerald-600"
                      aria-label={social.label}
                    >
