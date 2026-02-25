@@ -15,11 +15,13 @@ export default function Footer() {
   ];
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', href: '/#home' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Experience', href: '/#experience' },
+    { name: 'Contact', href: '/#contact' }
   ];
+
 
   useEffect(() => {
     const handleScroll = () => setShowScrollTop(window.scrollY > 500);
