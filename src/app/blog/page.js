@@ -1,7 +1,7 @@
 import { posts } from '../../data/posts';
-import Link from 'react-router-motion'; // Actually Next.js Link
 import Link from 'next/link';
 import { FaCalendarAlt, FaUser, FaTag, FaArrowRight } from 'react-icons/fa';
+
 
 export const metadata = {
   title: 'Blog & Knowledge Base | Yogesh Chavan - Software Engineer',
