@@ -80,12 +80,16 @@ const Card = ({ i, project, setModal, progress, range, targetScale }) => {
         style={{ scale, top: `calc(-5vh + ${i * 25}px)` }} 
         className="flex flex-col relative -top-[5%] md:-top-[5%] w-[90vw] md:w-[1000px] h-[70vh] md:h-[500px] rounded-3xl overflow-hidden border border-stone-200 shadow-2xl origin-top bg-white neon-border-card cursor-pointer group"
       >
-        <Link href={`/projects/${project.slug}`} className="flex flex-col md:flex-row h-full w-full">
+        <div className="flex flex-col md:flex-row h-full w-full">
             
             {/* Left: Content */}
             <div className="w-full md:w-[40%] p-8 md:p-12 flex flex-col justify-between bg-white relative z-20">
-               <div>
-                  <h2 className="text-3xl font-bold text-stone-900 mb-2 group-hover:text-emerald-600 transition-colors">{project.title}</h2>
+               <div className="relative z-20">
+                  <h2 className="text-3xl font-bold text-stone-900 mb-2 group-hover:text-emerald-600 transition-colors">
+                     <Link href={`/projects/${project.slug}`} className="after:absolute after:inset-0 after:z-10">
+                        {project.title}
+                     </Link>
+                  </h2>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.techStack.slice(0, 3).map(tech => (
                        <span key={tech} className="px-2 py-1 bg-stone-100 text-stone-600 rounded text-xs font-bold uppercase tracking-wider">{tech}</span>
@@ -96,12 +100,13 @@ const Card = ({ i, project, setModal, progress, range, targetScale }) => {
                   </p>
                </div>
                
-                <div className="flex items-center gap-4 mt-6 md:mt-0">
-                   <span 
+                <div className="flex items-center gap-4 mt-6 md:mt-0 relative z-30">
+                   <Link 
+                      href={`/projects/${project.slug}`}
                       className="flex items-center gap-2 text-stone-900 font-bold border-b-2 border-stone-900 pb-1 group-hover:text-emerald-600 group-hover:border-emerald-600 transition-colors"
                    >
                       View Case Study <FaArrowRight size={12} />
-                   </span>
+                   </Link>
                    <a 
                      href={project.github} 
                      target="_blank" 
@@ -126,11 +131,12 @@ const Card = ({ i, project, setModal, progress, range, targetScale }) => {
               </motion.div>
               
               {/* Overlay Text */}
-              <div className="absolute bottom-6 right-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-lg text-xs font-bold uppercase tracking-widest shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute bottom-6 right-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-lg text-xs font-bold uppercase tracking-widest shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                  Read Full Details
               </div>
             </div>
-        </Link>
+        </div>
+
       </motion.article>
     </div>
   );
