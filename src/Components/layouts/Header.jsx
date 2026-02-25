@@ -3,6 +3,8 @@
 import { m as motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import Link from 'next/link';
+
 
 export default function Header() {
   const { scrollY } = useScroll();
@@ -24,10 +26,23 @@ export default function Header() {
     let observer;
     
     const observeSections = () => {
-      const sectionElements = navLinks.map(link => document.querySelector(link.href));
-      const allFound = sectionElements.every(el => el !== null);
+      if (window.location.pathname !== '/') {
+        // If not on home page, check if we are on blog
+        if (window.location.pathname.startsWith('/blog')) {
+          setActiveSection('blog');
+        }
+        return true; // Stop retrying on non-home pages
+      }
+
+      const hashLinks = navLinks.filter(link => link.href.includes('#'));
+      const sectionElements = hashLinks
+        .map(link => {
+          const id = link.href.split('#')[1];
+          return document.querySelector(`#${id}`);
+        })
+        .filter(el => el !== null);
       
-      if (allFound) {
+      if (sectionElements.length > 0) {
         observer = new IntersectionObserver(
           (entries) => {
             entries.forEach(entry => {
@@ -36,11 +51,12 @@ export default function Header() {
           },
           { threshold: 0.2, rootMargin: "-20% 0px -35% 0px" }
         );
-        sectionElements.forEach(section => section && observer.observe(section));
-        return true; // Success
+        sectionElements.forEach(section => observer.observe(section));
+        return true; 
       }
-      return false; // Metrics not ready
+      return false; 
     };
+
 
     // Try immediately
     if (!observeSections()) {
@@ -62,12 +78,16 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/#home' },
+    { name: 'Skills', href: '/#skills' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'About', href: '/about' },
+    { name: 'Experience', href: '/#experience' },
+
+    { name: 'Contact', href: '/#contact' },
   ];
+
 
   const logoText = "yogesh".split("");
 
@@ -125,36 +145,54 @@ export default function Header() {
           <nav className="hidden md:block">
             <ul className="flex items-center gap-2 bg-white/50 backdrop-blur-sm px-2 py-1.5 rounded-full border border-white/20 shadow-sm hover:shadow-md transition-shadow duration-300">
               {navLinks.map((link) => {
-                const isActive = activeSection === link.href.substring(1);
+                const isActive = activeSection === link.href.split('#')[1] || (activeSection === 'home' && link.name === 'Home');
+                const isInternalHash = link.href.startsWith('/#');
+                
                 return (
                   <li key={link.name} className="relative">
-                    <a
-                      href={link.href}
-                      onClick={(e) => {
-                         e.preventDefault();
-                         document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
-                         setActiveSection(link.href.substring(1));
-                      }}
-                      className={`relative z-10 block px-5 py-2 text-sm font-medium transition-colors duration-300 ${
-                        isActive ? 'text-white' : 'text-stone-600 hover:text-stone-900'
-                      }`}
-                    >
-                      {link.name}
-                      
-                      {/* Active Pill Background */}
-                      {isActive && (
-                        <motion.div
-                          className="absolute inset-0 bg-stone-900 rounded-full -z-10"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.8 }}
-                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                        />
-                      )}
-                    </a>
+                    {isInternalHash ? (
+                      <a
+                        href={link.href}
+                        onClick={(e) => {
+                           if (window.location.pathname === '/') {
+                             e.preventDefault();
+                             document.querySelector(`#${link.href.split('#')[1]}`)?.scrollIntoView({ behavior: 'smooth' });
+                           }
+                        }}
+                        className={`relative z-10 block px-5 py-2 text-sm font-medium transition-colors duration-300 ${
+                          isActive ? 'text-white' : 'text-stone-600 hover:text-stone-900'
+                        }`}
+                      >
+                        {link.name}
+                        {isActive && (
+                          <motion.div
+                            layoutId="navPill"
+                            className="absolute inset-0 bg-stone-900 rounded-full -z-10"
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                          />
+                        )}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className={`relative z-10 block px-5 py-2 text-sm font-medium transition-colors duration-300 ${
+                          isActive ? 'text-white' : 'text-stone-600 hover:text-stone-900'
+                        }`}
+                      >
+                        {link.name}
+                        {isActive && (
+                          <motion.div
+                            layoutId="navPill"
+                            className="absolute inset-0 bg-stone-900 rounded-full -z-10"
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                          />
+                        )}
+                      </Link>
+                    )}
                   </li>
                 );
               })}
+
             </ul>
           </nav>
 
@@ -195,10 +233,11 @@ export default function Header() {
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
                     className={`text-4xl font-display font-medium block ${
-                      activeSection === link.href.substring(1) 
+                      (link.href.includes('#') ? activeSection === link.href.split('#')[1] : activeSection === link.href.replace('/', ''))
                         ? 'text-stone-900' 
                         : 'text-stone-400 hover:text-stone-900 transition-colors'
                     }`}
+
                   >
                      {link.name}
                   </a>

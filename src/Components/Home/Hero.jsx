@@ -214,23 +214,12 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              {/* SEO ONLY H1 */}
-              <h1 className="text-lg md:text-xl font-bold text-stone-800 mb-4 leading-tight opacity-80">
-                Yogesh Chavan - Software Engineer & Full Stack Developer
-              </h1>
-
-              <motion.div 
-                className="text-emerald-600 font-mono text-sm tracking-widest uppercase mb-6 flex items-center gap-3 w-fit"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                whileHover={{ letterSpacing: "0.2em", transition: { duration: 0.3 } }}
-              >
-                <span className="w-8 h-[1px] bg-emerald-600 inline-block"></span>
-                Software Engineer
-              </motion.div>
-              
-              <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-stone-900 tracking-tight leading-[1.1] mb-8">
+              {/* Primary SEO Heading */}
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-stone-900 tracking-tight leading-[1.1] mb-8">
+                <div className="text-emerald-600 font-mono text-sm tracking-widest uppercase mb-6 flex items-center gap-3 w-fit">
+                    <span className="w-8 h-[1px] bg-emerald-600 inline-block"></span>
+                    Portfolio of Yogesh Chavan
+                </div>
                 <AnimatedText text="Building solid," delay={0.1} />
                 <AnimatedText text="scalable digital" delay={0.3} />
                 <div className="overflow-hidden">
@@ -243,7 +232,8 @@ export default function Hero() {
                      solutions.
                    </motion.div>
                 </div>
-              </h2>
+              </h1>
+
 
               <motion.p 
                 initial={{ opacity: 0 }}

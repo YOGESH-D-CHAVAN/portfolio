@@ -13,6 +13,9 @@ const PageLoader = () => (
   </div>
 );
 
+import LatestInsights from '../Components/Home/LatestInsights';
+import FAQ from '../Components/Home/FAQ';
+
 export default function Home() {
   return (
     <>
@@ -21,8 +24,12 @@ export default function Home() {
         <Skills />
         <Projects project={projects} />
         <Experience />
+        <LatestInsights />
+        <FAQ />
         <Contact />
       </Suspense>
     </>
   );
 }
+
+
