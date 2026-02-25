@@ -13,7 +13,7 @@ export default function Contact() {
     message: ''
   });
   
-  const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [status, setStatus] = useState('idle'); 
   const [isView, setIsView] = useState(false);
 
   const handleChange = (e) => {
