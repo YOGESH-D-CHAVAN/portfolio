@@ -82,7 +82,7 @@ const experiences = [
   return (
     <article className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group`}>
        
-       {/* Card Content Section */}
+      
        <div className={`flex items-center w-full md:w-[calc(50%-40px)] ${isOdd ? 'justify-start' : 'justify-end'}`}>
           <motion.div
             initial={{ opacity: 0, x: isOdd ? 50 : -50 }}
