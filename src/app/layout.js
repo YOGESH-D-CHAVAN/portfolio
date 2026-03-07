@@ -67,6 +67,10 @@ export const metadata = {
   verification: {
     google: 'UBHmZkftZG1VqbZC7JsSqm0aFGE9xDTKMpSWvSSqdGw',
   },
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
 };
 
 import { Providers } from '../Components/Providers';

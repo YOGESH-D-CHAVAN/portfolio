@@ -27,7 +27,7 @@ const FAQItem = ({ question, answer, index }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -36,18 +36,17 @@ const FAQItem = ({ question, answer, index }) => {
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 flex justify-between items-center group ${
-          isOpen ? 'bg-white border-emerald-500 shadow-xl shadow-emerald-500/10' : 'bg-stone-50 border-stone-100 hover:border-emerald-200'
-        }`}
+        className={`w-full text-left p-5 sm:p-6 rounded-2xl border transition-all duration-300 flex justify-between items-center group ${isOpen ? 'bg-white border-emerald-500 shadow-xl shadow-emerald-500/10' : 'bg-stone-50 border-stone-100 hover:border-emerald-200'
+          }`}
       >
         <span className={`text-lg font-bold transition-colors ${isOpen ? 'text-emerald-600' : 'text-stone-900'}`}>
           {question}
         </span>
         <motion.div
-            animate={{ rotate: isOpen ? 180 : 0 }}
-            className={isOpen ? 'text-emerald-500' : 'text-stone-400'}
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          className={isOpen ? 'text-emerald-500' : 'text-stone-400'}
         >
-            <FaChevronDown />
+          <FaChevronDown />
         </motion.div>
       </button>
       <AnimatePresence>
@@ -59,7 +58,7 @@ const FAQItem = ({ question, answer, index }) => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="p-8 text-stone-600 leading-relaxed bg-white border-x border-b border-emerald-500 rounded-b-2xl -mt-2">
+            <div className="p-6 sm:p-8 text-stone-600 leading-relaxed bg-white border-x border-b border-emerald-500 rounded-b-2xl -mt-2">
               {answer}
             </div>
           </motion.div>
@@ -84,7 +83,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-stone-50/30 relative">
+    <section id="faq" className="py-24 bg-stone-50/30 relative scroll-mt-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -96,7 +95,7 @@ export default function FAQ() {
               <FaQuestionCircle size={24} />
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">Common <span className="text-emerald-600">Questions</span></h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-stone-900 mb-6">Common <span className="text-emerald-600">Questions</span></h2>
           <p className="text-lg text-stone-600">
             Answers to common inquiries about my expertise and professional background.
           </p>

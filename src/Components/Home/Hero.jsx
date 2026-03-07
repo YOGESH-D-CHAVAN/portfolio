@@ -24,7 +24,7 @@ const GridBackground = () => (
 
 const AnimatedText = ({ text, className, delay = 0 }) => {
   const words = text.split(" ");
-  
+
   const container = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
@@ -64,16 +64,16 @@ const AnimatedText = ({ text, className, delay = 0 }) => {
       {words.map((word, index) => (
         <span key={index} className="whitespace-nowrap">
           {word.split("").map((character, charIndex) => (
-             <motion.span
+            <motion.span
               key={charIndex}
               variants={child}
               className="inline-block cursor-pointer"
               whileHover={{
-                 scale: 1.2,
-                 y: -5,
-                 color: "#059669", 
-                 rotate: Math.random() * 8 - 4,
-                 transition: { type: "spring", stiffness: 300 }
+                scale: 1.2,
+                y: -5,
+                color: "#059669",
+                rotate: Math.random() * 8 - 4,
+                transition: { type: "spring", stiffness: 300 }
               }}
             >
               {character}
@@ -98,7 +98,7 @@ const GravityImage = () => {
   const springConfig = { damping: 15, stiffness: 150, mass: 0.5 };
   const rotateX = useSpring(useTransform(y, [-100, 100], [10, -10]), springConfig);
   const rotateY = useSpring(useTransform(x, [-100, 100], [-10, 10]), springConfig);
-  
+
   // Magnetic pull effect
   const moveX = useSpring(useTransform(x, [-100, 100], [-20, 20]), springConfig);
   const moveY = useSpring(useTransform(y, [-100, 100], [-20, 20]), springConfig);
@@ -108,7 +108,7 @@ const GravityImage = () => {
     const rect = ref.current.getBoundingClientRect();
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
+
     // Calculate distance from center
     const mouseX = e.clientX - rect.left - centerX;
     const mouseY = e.clientY - rect.top - centerY;
@@ -130,7 +130,7 @@ const GravityImage = () => {
   return (
     <motion.div
       ref={ref}
-      className="relative w-64 h-80 md:w-80 md:h-96 lg:w-96 lg:h-[30rem] mx-auto perspective-1000 cursor-none"
+      className="relative w-full aspect-[4/5] max-w-[280px] md:max-w-xs lg:max-w-sm mx-auto perspective-1000 cursor-none"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={handleMouseLeave}
@@ -151,43 +151,43 @@ const GravityImage = () => {
         transition={hover ? {} : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
         <div className="relative w-full h-full transform-style-3d bg-stone-900">
-           {/* The Image */}
-           <motion.div
-             style={{
-               translateX: imgTranslateX,
-               translateY: imgTranslateY,
-             }}
-             className="w-full h-full"
-           >
-             <Image 
-               src={profileImg} 
-               alt="Yogesh Chavan - Software Engineer and Full Stack Developer" 
-               fill
-               className="object-cover opacity-90 transition-transform duration-500 scale-105"
-               priority
-             />
-           </motion.div>
-           
-           {/* Glass overlay reflection */}
-           <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-overlay" />
-           
-           {/* Dark gradient at bottom */}
-           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-stone-900/80 to-transparent pointer-events-none" />
-           
-           {/* Floating Badge inside 3D space */}
-           <motion.div 
-             className="absolute bottom-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-lg text-white font-mono text-xs font-bold tracking-widest uppercase shadow-lg z-20"
-             style={{ 
-               transform: "translateZ(30px)", 
-             }}
-           >
-             Developer
-           </motion.div>
+          {/* The Image */}
+          <motion.div
+            style={{
+              translateX: imgTranslateX,
+              translateY: imgTranslateY,
+            }}
+            className="w-full h-full"
+          >
+            <Image
+              src={profileImg}
+              alt="Yogesh Chavan - Software Engineer and Full Stack Developer"
+              fill
+              className="object-cover opacity-90 transition-transform duration-500 scale-105"
+              priority
+            />
+          </motion.div>
+
+          {/* Glass overlay reflection */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-overlay" />
+
+          {/* Dark gradient at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-stone-900/80 to-transparent pointer-events-none" />
+
+          {/* Floating Badge inside 3D space */}
+          <motion.div
+            className="absolute bottom-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-lg text-white font-mono text-xs font-bold tracking-widest uppercase shadow-lg z-20"
+            style={{
+              transform: "translateZ(30px)",
+            }}
+          >
+            Developer
+          </motion.div>
         </div>
       </motion.div>
-      
+
       {/* Background Glow / Shadow */}
-      <motion.div 
+      <motion.div
         className="absolute -inset-10 bg-emerald-500/20 blur-3xl -z-10 rounded-full opacity-60 pointer-events-none"
         animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.6, 0.4] }}
         transition={{ duration: 4, repeat: Infinity }}
@@ -203,10 +203,10 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-stone-50">
       <GridBackground />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Main Content */}
           <div className="lg:col-span-7">
             <motion.div
@@ -215,27 +215,27 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               {/* Primary SEO Heading */}
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-stone-900 tracking-tight leading-[1.1] mb-8">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-stone-900 tracking-tight leading-[1.1] mb-8">
                 <div className="text-emerald-600 font-mono text-sm tracking-widest uppercase mb-6 flex items-center gap-3 w-fit">
-                    <span className="w-8 h-[1px] bg-emerald-600 inline-block"></span>
-                    Portfolio of Yogesh Chavan
+                  <span className="w-8 h-[1px] bg-emerald-600 inline-block"></span>
+                  Portfolio of Yogesh Chavan
                 </div>
                 <AnimatedText text="Building solid," delay={0.1} />
                 <AnimatedText text="scalable digital" delay={0.3} />
                 <div className="overflow-hidden">
-                   <motion.div
-                     initial={{ y: "100%" }}
-                     animate={{ y: 0 }}
-                     transition={{ delay: 0.5, duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-                     className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500"
-                   >
-                     solutions.
-                   </motion.div>
+                  <motion.div
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+                    className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500"
+                  >
+                    solutions.
+                  </motion.div>
                 </div>
               </h1>
 
 
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 1 }}
@@ -243,15 +243,15 @@ export default function Hero() {
               >
                 I'm Yogesh Chavan. I specialize in full-stack architecture, crafting high-performance web applications that bridge the gap between complex engineering and intuitive user experience.
               </motion.p>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.5 }}
                 className="flex items-center gap-6"
               >
-                <a 
-                  href="#projects" 
+                <a
+                  href="#projects"
                   className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-stone-900 px-8 font-medium text-white transition-all duration-300 hover:bg-stone-800 hover:w-40 w-36 neon-border-card"
                 >
                   <div className="inline-flex whitespace-nowrap opacity-100 transition-all duration-200 group-hover:-translate-x-3 group-hover:opacity-0">
@@ -264,10 +264,10 @@ export default function Hero() {
                     </svg>
                   </div>
                 </a>
-                
-                <a 
-                  href="https://drive.google.com/file/d/1XO7qa2cYJIrIpVlF9ecfk6KAMlfuxy0G/view" 
-                  target="_blank" 
+
+                <a
+                  href="https://drive.google.com/file/d/1XO7qa2cYJIrIpVlF9ecfk6KAMlfuxy0G/view"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-stone-600 hover:text-stone-900 font-medium transition-colors"
                 >
@@ -280,14 +280,14 @@ export default function Hero() {
 
           {/* Image Section */}
           <div className="lg:col-span-5 relative block w-64 h-64 mx-auto mb-10 lg:w-full lg:h-full lg:mb-0 perspective-1000">
-             <GravityImage />
+            <GravityImage />
           </div>
         </div>
       </div>
-      
+
       {/* Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }} 
+      <motion.div
+        initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ delay: 2, duration: 1.5, repeat: Infinity }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-stone-400 opacity-0"

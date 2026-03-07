@@ -2,15 +2,15 @@
 
 import { m as motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { 
-  FaHtml5, FaCss3Alt, FaJs, FaReact, FaBootstrap, FaNodeJs, FaGitAlt, 
+import {
+  FaHtml5, FaCss3Alt, FaJs, FaReact, FaBootstrap, FaNodeJs, FaGitAlt,
   FaGithub, FaNpm, FaDatabase, FaCode, FaServer, FaTools, FaLayerGroup,
   FaDocker, FaAws
 } from 'react-icons/fa';
-import { 
+import {
   SiTailwindcss, SiExpress, SiMongodb, SiMysql, SiPostman, SiTypescript, SiVite
 } from 'react-icons/si';
-import { skillCategories } from '../../data/skills'; 
+import { skillCategories } from '../../data/skills';
 
 // --- Icon Mapping ---
 const skillIconMap = {
@@ -37,17 +37,17 @@ const SkillCard = ({ skill, index }) => {
     >
       <div className="h-full p-4 bg-white rounded-xl border border-stone-100 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden z-0 neon-border-card">
         <div className="relative z-10 flex items-center gap-4">
-           {/* Icon Box */}
-           <div className="w-12 h-12 rounded-lg bg-stone-50 text-stone-600 flex items-center justify-center text-2xl group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
-             <Icon />
-           </div>
-           
-           {/* Text */}
-           <div>
-             <h4 className="text-stone-700 font-semibold text-sm group-hover:text-stone-900 transition-colors">
-               {skill}
-             </h4>
-           </div>
+          {/* Icon Box */}
+          <div className="w-12 h-12 rounded-lg bg-stone-50 text-stone-600 flex items-center justify-center text-2xl group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+            <Icon />
+          </div>
+
+          {/* Text */}
+          <div>
+            <h4 className="text-stone-700 font-semibold text-sm group-hover:text-stone-900 transition-colors">
+              {skill}
+            </h4>
+          </div>
         </div>
 
         {/* Hover Background Effect */}
@@ -93,40 +93,40 @@ export default function Skills() {
   const displayedSkills = isMobile && !showAll ? filteredSkills.slice(0, 8) : filteredSkills;
 
   return (
-    <section 
-      id="skills" 
-      className="py-24 bg-stone-50/50 relative"
+    <section
+      id="skills"
+      className="py-24 bg-stone-50/50 relative overflow-hidden scroll-mt-24"
     >
       <motion.div
         onViewportEnter={() => setIsView(true)}
         onViewportLeave={() => setIsView(false)}
         viewport={{ amount: 0.3, margin: "0px 0px -200px 0px" }}
-        className="absolute inset-0 pointer-events-none" 
+        className="absolute inset-0 pointer-events-none"
       />
       {/* SEO handled by Next.js layout */}
-      
+
       <div className="container mx-auto px-6 relative z-10">
-        
+
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-           <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl font-bold text-stone-900 mb-4"
-           >
-             Technical <span className="text-emerald-600">Arsenal</span>
-           </motion.h2>
-           <motion.p 
+          >
+            Technical <span className="text-emerald-600">Arsenal</span>
+          </motion.h2>
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="text-stone-600"
-           >
-             Explore the technologies I use to craft exceptional digital experiences. 
-             Filter by category to see specific skill sets.
-           </motion.p>
+          >
+            Explore the technologies I use to craft exceptional digital experiences.
+            Filter by category to see specific skill sets.
+          </motion.p>
         </div>
 
         {/* Tab Navigation */}
@@ -136,9 +136,8 @@ export default function Skills() {
               key={cat}
               suppressHydrationWarning
               onClick={() => { setActiveCategory(cat); setShowAll(false); }}
-              className={`relative px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeCategory === cat ? 'text-white' : 'text-stone-600 hover:text-stone-900 bg-white border border-stone-200'
-              }`}
+              className={`relative px-6 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === cat ? 'text-white' : 'text-stone-600 hover:text-stone-900 bg-white border border-stone-200'
+                }`}
             >
               {activeCategory === cat && (
                 <motion.div
@@ -155,7 +154,7 @@ export default function Skills() {
         </div>
 
         {/* Skills Grid */}
-        <motion.ul 
+        <motion.ul
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
         >
           <AnimatePresence mode='popLayout'>
@@ -168,12 +167,12 @@ export default function Skills() {
         {/* Mobile Show More Button */}
         {isMobile && filteredSkills.length > 8 && (
           <div className="md:hidden mt-8 text-center">
-             <button 
-               onClick={() => setShowAll(!showAll)}
-               className="px-6 py-2 bg-white border border-stone-200 text-stone-600 font-medium rounded-full shadow-sm active:scale-95 transition-all outline-none focus:ring-2 focus:ring-emerald-500/20"
-             >
-                {showAll ? 'Show Less' : 'Show More'}
-             </button>
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="px-6 py-2 bg-white border border-stone-200 text-stone-600 font-medium rounded-full shadow-sm active:scale-95 transition-all outline-none focus:ring-2 focus:ring-emerald-500/20"
+            >
+              {showAll ? 'Show Less' : 'Show More'}
+            </button>
           </div>
         )}
 

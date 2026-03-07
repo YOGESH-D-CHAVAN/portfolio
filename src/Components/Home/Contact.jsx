@@ -12,8 +12,8 @@ export default function Contact() {
     subject: '',
     message: ''
   });
-  
-  const [status, setStatus] = useState('idle'); 
+
+  const [status, setStatus] = useState('idle');
   const [isView, setIsView] = useState(false);
 
   const handleChange = (e) => {
@@ -34,27 +34,27 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     setStatus('submitting');
-    
+
     // Creating the loading promise for toast
     const loadingToast = toast.loading("Sending your message...");
 
     try {
       const response = await fetch("https://formsubmit.co/ajax/chavanyogesh8600@gmail.com", {
         method: "POST",
-        headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            subject: formData.subject || "New Portfolio Contact",
-            message: formData.message,
-            _template: 'table'
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || "New Portfolio Contact",
+          message: formData.message,
+          _template: 'table'
         })
       });
 
@@ -62,7 +62,7 @@ export default function Contact() {
         setStatus('success');
         toast.success("Message sent successfully!", { id: loadingToast });
         setFormData({ name: '', email: '', subject: '', message: '' });
-        
+
         // Reset status after animation
         setTimeout(() => setStatus('idle'), 3000);
       } else {
@@ -77,12 +77,12 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-stone-50 relative overflow-hidden">
+    <section id="contact" className="py-24 bg-stone-50 relative overflow-hidden scroll-mt-24">
       <motion.div
         onViewportEnter={() => setIsView(true)}
         onViewportLeave={() => setIsView(false)}
         viewport={{ amount: 0.3, margin: "0px 0px -200px 0px" }}
-        className="absolute inset-0 pointer-events-none" 
+        className="absolute inset-0 pointer-events-none"
       />
       {/* SEO handled by Next.js layout */}
 
@@ -92,15 +92,15 @@ export default function Contact() {
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.header
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           className="max-w-3xl mx-auto text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center mb-16"
         >
           <span className="text-emerald-600 font-mono text-sm tracking-widest uppercase mb-2 block">
             // Get in Touch
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-stone-900 mb-6">
             Let's start a <span className="text-emerald-600">conversation.</span>
           </h2>
           <p className="text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto">
@@ -109,7 +109,7 @@ export default function Contact() {
         </motion.header>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-          
+
           {/* Contact Info (Left Side) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -118,53 +118,53 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="space-y-12"
           >
-             <address className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 relative overflow-hidden group neon-border-card not-italic">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-100 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110" />
-                
-                <h3 className="text-2xl font-bold text-stone-900 mb-6 relative z-10">Contact Details</h3>
-                
-                <div className="space-y-6 relative z-10">
-                   <a href="mailto:chavanyogesh8600@gmail.com" className="flex items-start gap-4 group/item">
-                      <div className="w-12 h-12 bg-stone-50 rounded-full flex items-center justify-center text-emerald-600 group-hover/item:bg-emerald-600 group-hover/item:text-white transition-colors">
-                        <FiMail size={20} />
-                      </div>
-                      <div>
-                        <span className="text-sm font-semibold text-stone-400 block mb-1">Email Me</span>
-                        <span className="text-lg font-medium text-stone-900 group-hover/item:text-emerald-600 transition-colors">chavanyogesh8600@gmail.com</span>
-                      </div>
-                   </a>
+            <address className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 relative overflow-hidden group neon-border-card not-italic">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-100 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110" />
 
-                   <div className="flex items-start gap-4 group/item">
-                      <div className="w-12 h-12 bg-stone-50 rounded-full flex items-center justify-center text-emerald-600 group-hover/item:bg-emerald-600 group-hover/item:text-white transition-colors">
-                        <FiMapPin size={20} />
-                      </div>
-                      <div>
-                        <span className="text-sm font-semibold text-stone-400 block mb-1">Location</span>
-                        <span className="text-lg font-medium text-stone-900">India</span>
-                      </div>
-                   </div>
-                </div>
-             </address>
+              <h3 className="text-2xl font-bold text-stone-900 mb-6 relative z-10">Contact Details</h3>
 
-             <article className="bg-stone-900 p-8 rounded-3xl text-white relative overflow-hidden neon-border-card">
-                <div className="relative z-10">
-                   <h3 className="text-2xl font-bold mb-4">Availability Status</h3>
-                   <div className="flex items-center gap-3">
-                      <span className="relative flex h-3 w-3">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                      </span>
-                      <span className="font-medium text-emerald-400">Open to new opportunities</span>
-                   </div>
-                   <p className="mt-4 text-stone-400 text-sm leading-relaxed">
-                     I'm currently available for freelance projects and full-time roles starting immediately.
-                   </p>
+              <div className="space-y-6 relative z-10">
+                <a href="mailto:chavanyogesh8600@gmail.com" className="flex items-start gap-4 group/item">
+                  <div className="w-12 h-12 bg-stone-50 rounded-full flex items-center justify-center text-emerald-600 group-hover/item:bg-emerald-600 group-hover/item:text-white transition-colors">
+                    <FiMail size={20} />
+                  </div>
+                  <div>
+                    <span className="text-sm font-semibold text-stone-400 block mb-1">Email Me</span>
+                    <span className="text-lg font-medium text-stone-900 group-hover/item:text-emerald-600 transition-colors">chavanyogesh8600@gmail.com</span>
+                  </div>
+                </a>
+
+                <div className="flex items-start gap-4 group/item">
+                  <div className="w-12 h-12 bg-stone-50 rounded-full flex items-center justify-center text-emerald-600 group-hover/item:bg-emerald-600 group-hover/item:text-white transition-colors">
+                    <FiMapPin size={20} />
+                  </div>
+                  <div>
+                    <span className="text-sm font-semibold text-stone-400 block mb-1">Location</span>
+                    <span className="text-lg font-medium text-stone-900">India</span>
+                  </div>
                 </div>
-                {/* Abstract decoration */}
-                <div className="absolute bottom-0 right-0 p-8 opacity-10">
-                   <FiSend size={120} />
+              </div>
+            </address>
+
+            <article className="bg-stone-900 p-8 rounded-3xl text-white relative overflow-hidden neon-border-card">
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-4">Availability Status</h3>
+                <div className="flex items-center gap-3">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                  </span>
+                  <span className="font-medium text-emerald-400">Open to new opportunities</span>
                 </div>
-             </article>
+                <p className="mt-4 text-stone-400 text-sm leading-relaxed">
+                  I'm currently available for freelance projects and full-time roles starting immediately.
+                </p>
+              </div>
+              {/* Abstract decoration */}
+              <div className="absolute bottom-0 right-0 p-8 opacity-10">
+                <FiSend size={120} />
+              </div>
+            </article>
           </motion.div>
 
           {/* Form (Right Side) */}
@@ -173,134 +173,133 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-stone-200/50 border border-stone-100 neon-border-card"
+            className="bg-white p-6 sm:p-8 md:p-10 rounded-3xl shadow-xl shadow-stone-200/50 border border-stone-100 neon-border-card"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
-               <div className="grid md:grid-cols-2 gap-6">
-                 <div className="relative group">
-                   <label htmlFor="name" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Your Name</label>
-                    <input
-                      id="name"
-                      suppressHydrationWarning
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      disabled={status ===('submitting' || 'success')}
-                      className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
-                      placeholder="John Doe"
-                    />
-                 </div>
-                 <div className="relative group">
-                   <label htmlFor="email" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Your Email</label>
-                    <input
-                      id="email"
-                      suppressHydrationWarning
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      disabled={status ===('submitting' || 'success')}
-                      className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
-                      placeholder="john@example.com"
-                    />
-                 </div>
-               </div>
-               
-               <div className="relative group">
-                 <label htmlFor="subject" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Subject</label>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="relative group">
+                  <label htmlFor="name" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Your Name</label>
                   <input
-                    id="subject"
+                    id="name"
                     suppressHydrationWarning
                     type="text"
-                    name="subject"
-                    value={formData.subject}
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
-                    disabled={status ===('submitting' || 'success')}
+                    disabled={status === ('submitting' || 'success')}
                     className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
-                    placeholder="Project Inquiry"
+                    placeholder="John Doe"
                   />
-               </div>
-               
-               <div className="relative group">
-                 <label htmlFor="message" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Message</label>
-                  <textarea
-                    id="message"
+                </div>
+                <div className="relative group">
+                  <label htmlFor="email" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Your Email</label>
+                  <input
+                    id="email"
                     suppressHydrationWarning
-                    name="message"
-                    rows="4"
-                    value={formData.message}
+                    type="email"
+                    name="email"
+                    value={formData.email}
                     onChange={handleChange}
-                    disabled={status ===('submitting' || 'success')}
-                    className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all resize-none font-medium"
-                    placeholder="Tell me about your project..."
+                    disabled={status === ('submitting' || 'success')}
+                    className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
+                    placeholder="john@example.com"
                   />
-               </div>
-               
-               <div className="pt-4">
-                 <motion.button
-                   suppressHydrationWarning
-                   whileHover={status === 'idle' ? { scale: 1.02 } : {}}
-                   whileTap={status === 'idle' ? { scale: 0.98 } : {}}
-                   disabled={status !== 'idle'}
-                   type="submit"
-                   className={`w-full py-4 rounded-xl font-bold tracking-wide flex items-center justify-center gap-2 transition-all duration-300 ${
-                     status === 'success' ? 'bg-emerald-500 text-white' : 
-                     status === 'error' ? 'bg-red-500 text-white' :
-                     'bg-stone-900 text-white hover:bg-stone-800'
-                   }`}
-                 >
-                   <AnimatePresence mode="wait">
-                     {status === 'idle' && (
-                       <motion.div 
-                         key="idle"
-                         initial={{ opacity: 0, y: 10 }}
-                         animate={{ opacity: 1, y: 0 }}
-                         exit={{ opacity: 0, y: -10 }}
-                         className="flex items-center gap-2"
-                       >
-                         <FiSend size={18} />
-                         <span>Send Message</span>
-                       </motion.div>
-                     )}
-                     
-                     {status === 'submitting' && (
-                       <motion.div 
-                         key="loading"
-                         initial={{ opacity: 0, scale: 0.5 }}
-                         animate={{ opacity: 1, scale: 1 }}
-                         exit={{ opacity: 0, scale: 0.5 }}
-                       >
-                         <FiLoader className="animate-spin" size={24} />
-                       </motion.div>
-                     )}
+                </div>
+              </div>
 
-                     {status === 'success' && (
-                       <motion.div 
-                         key="success"
-                         initial={{ opacity: 0, scale: 0.5 }}
-                         animate={{ opacity: 1, scale: 1 }}
-                         className="flex items-center gap-2"
-                       >
-                         <FiCheck size={24} />
-                         <span>Message Sent!</span>
-                       </motion.div>
-                     )}
+              <div className="relative group">
+                <label htmlFor="subject" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Subject</label>
+                <input
+                  id="subject"
+                  suppressHydrationWarning
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  disabled={status === ('submitting' || 'success')}
+                  className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all font-medium"
+                  placeholder="Project Inquiry"
+                />
+              </div>
 
-                     {status === 'error' && (
-                        <motion.div 
-                          key="error"
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          className="flex items-center gap-2"
-                        >
-                          <FiAlertCircle size={24} />
-                          <span>Failed. Try again.</span>
-                        </motion.div>
-                     )}
-                   </AnimatePresence>
-                 </motion.button>
-               </div>
+              <div className="relative group">
+                <label htmlFor="message" className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2 block group-focus-within:text-emerald-600 transition-colors">Message</label>
+                <textarea
+                  id="message"
+                  suppressHydrationWarning
+                  name="message"
+                  rows="4"
+                  value={formData.message}
+                  onChange={handleChange}
+                  disabled={status === ('submitting' || 'success')}
+                  className="w-full bg-stone-50 border-2 border-transparent px-4 py-3 rounded-xl text-stone-900 placeholder-stone-300 focus:outline-none focus:bg-white focus:border-emerald-500 transition-all resize-none font-medium"
+                  placeholder="Tell me about your project..."
+                />
+              </div>
+
+              <div className="pt-4">
+                <motion.button
+                  suppressHydrationWarning
+                  whileHover={status === 'idle' ? { scale: 1.02 } : {}}
+                  whileTap={status === 'idle' ? { scale: 0.98 } : {}}
+                  disabled={status !== 'idle'}
+                  type="submit"
+                  className={`w-full py-4 rounded-xl font-bold tracking-wide flex items-center justify-center gap-2 transition-all duration-300 ${status === 'success' ? 'bg-emerald-500 text-white' :
+                    status === 'error' ? 'bg-red-500 text-white' :
+                      'bg-stone-900 text-white hover:bg-stone-800'
+                    }`}
+                >
+                  <AnimatePresence mode="wait">
+                    {status === 'idle' && (
+                      <motion.div
+                        key="idle"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="flex items-center gap-2"
+                      >
+                        <FiSend size={18} />
+                        <span>Send Message</span>
+                      </motion.div>
+                    )}
+
+                    {status === 'submitting' && (
+                      <motion.div
+                        key="loading"
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.5 }}
+                      >
+                        <FiLoader className="animate-spin" size={24} />
+                      </motion.div>
+                    )}
+
+                    {status === 'success' && (
+                      <motion.div
+                        key="success"
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="flex items-center gap-2"
+                      >
+                        <FiCheck size={24} />
+                        <span>Message Sent!</span>
+                      </motion.div>
+                    )}
+
+                    {status === 'error' && (
+                      <motion.div
+                        key="error"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="flex items-center gap-2"
+                      >
+                        <FiAlertCircle size={24} />
+                        <span>Failed. Try again.</span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.button>
+              </div>
             </form>
           </motion.div>
         </div>
