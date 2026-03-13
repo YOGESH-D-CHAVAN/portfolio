@@ -41,6 +41,23 @@ const experiences = [
   },
   {
     id: 3,
+    title: "SVIT Gatepass System",
+    subtitle: "QR Code Authentication System",
+    role: "Full Stack Developer",
+    period: "Recent",
+    type: "Development",
+    icon: FaLaptopCode,
+    description: "Engineered a secure QR code-based authentication system for the SVIT annual gathering to efficiently manage and verify student entries.",
+    achievements: [
+      "Generated 1000+ unique QR codes to securely authenticate and process 1000+ attendees",
+      "Built real-time backend verification with strict checks to prevent duplicate or proxy entries",
+      "Maintained detailed live logs of student entry and exit times for campus security",
+      "Created comprehensive data dashboards showing present/absent counts and department-wise metrics"
+    ],
+    tech: ["React", "Node.js", "MongoDB", "QR API"]
+  },
+  {
+    id: 4,
     title: "College Website Developer",
     subtitle: "Frontend Engineering & Git Excellence",
     role: "Frontend Developer",
@@ -57,7 +74,7 @@ const experiences = [
     tech: ["React", "Tailwind CSS", "Git", "GitHub", "Vite"]
   },
   {
-    id: 4,
+    id: 5,
     title: "Smart India Hackathon",
     subtitle: "Full-Stack Innovation Under Pressure",
     role: "Full-Stack Developer",
