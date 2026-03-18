@@ -1,6 +1,24 @@
 export const projects = [
   {
     id: 1,
+    slug: "vajrachat",
+    title: "Vajra Chat",
+    category: "Real-Time Messaging",
+    description: "A fast, secure, full-stack messaging platform inspired by WhatsApp. Features real-time messaging, WebRTC-powered audio and video calls, and media sharing, engineered for a smooth and familiar user experience.",
+    techStack: ["React", "Node.js", "Express", "MongoDB", "Socket.IO", "WebRTC", "Tailwind CSS"],
+    github: "https://github.com/Yogesh100-design/VajraChat",
+    live: "https://lnkd.in/gG2Dn6x5",
+    image: "../assets/images/Vajrachat.png",
+    features: [
+      "Instant real-time messaging",
+      "Audio & Video Calling (WebRTC)",
+      "Secure JWT authentication",
+      "Media sharing & profile updates",
+      "Online status & typing indicators"
+    ]
+  },
+  {
+    id: 2,
     slug: "edumedia",
     title: "EduMedia",
     category: "EdTech Platform",
@@ -14,23 +32,6 @@ export const projects = [
       "Interactive video player with playback controls",
       "Secure user authentication and profile management",
       "Dynamic search and filtering for study materials"
-    ]
-  },
-  {
-    id: 2,
-    slug: "money-manager",
-    title: "Money Manager",
-    category: "FinTech Utility",
-    description: "A sophisticated financial tracking application that empowers users to manage their personal finances with precision. Built with a focus on data integrity, it provides deep insights into spending patterns through categorized expense tracking.",
-    techStack: ["HTML", "CSS", "PHP", "MySQL", "Chart.js"],
-    github: "https://github.com/Yogesh100-design/MoneyMate",
-    live: "https://moneymate-1-cacl.onrender.com/",
-    image: "../assets/images/money.webp",
-    features: [
-      "Detailed expense categorization",
-      "Monthly spending reports and visualizations",
-      "Secure MySQL database integration",
-      "Fully responsive dashboard layout"
     ]
   },
   {
@@ -52,6 +53,40 @@ export const projects = [
   },
   {
     id: 4,
+    slug: "notenest",
+    title: "NoteNest",
+    category: "Productivity",
+    description: "A secure, cloud-based note-taking application designed for productivity. NoteNest allows users to organize their thoughts, save snippets, and access them from anywhere with a robust MERN backend.",
+    techStack: ["React", "Node.js", "Express", "MongoDB", "JWT"],
+    github: "https://github.com/Yogesh100-design/Notenest",
+    live: "",
+    image: "../assets/images/notes.webp",
+    features: [
+      "JWT-based secure authentication",
+      "Full CRUD functionality for notes",
+      "Rich text support",
+      "Cloud synchronization"
+    ]
+  },
+  {
+    id: 5,
+    slug: "money-manager",
+    title: "Money Manager",
+    category: "FinTech Utility",
+    description: "A sophisticated financial tracking application that empowers users to manage their personal finances with precision. Built with a focus on data integrity, it provides deep insights into spending patterns through categorized expense tracking.",
+    techStack: ["HTML", "CSS", "PHP", "MySQL", "Chart.js"],
+    github: "https://github.com/Yogesh100-design/MoneyMate",
+    live: "https://moneymate-1-cacl.onrender.com/",
+    image: "../assets/images/money.webp",
+    features: [
+      "Detailed expense categorization",
+      "Monthly spending reports and visualizations",
+      "Secure MySQL database integration",
+      "Fully responsive dashboard layout"
+    ]
+  },
+  {
+    id: 6,
     slug: "svit-college-clone",
     title: "SVIT College Website Clone",
     category: "Web Architecture",
@@ -68,7 +103,7 @@ export const projects = [
     ]
   },
   {
-    id: 5,
+    id: 7,
     slug: "news-app",
     title: "QuickNews",
     category: "Content Aggregation",
@@ -83,25 +118,7 @@ export const projects = [
       "Responsive article layout",
       "Search functionality"
     ]
-  },
-  {
-    id: 6,
-    slug: "notenest",
-    title: "NoteNest",
-    category: "Productivity",
-    description: "A secure, cloud-based note-taking application designed for productivity. NoteNest allows users to organize their thoughts, save snippets, and access them from anywhere with a robust MERN backend.",
-    techStack: ["React", "Node.js", "Express", "MongoDB", "JWT"],
-    github: "https://github.com/Yogesh100-design/Notenest",
-    live: "",
-    image: "../assets/images/notes.webp",
-    features: [
-      "JWT-based secure authentication",
-      "Full CRUD functionality for notes",
-      "Rich text support",
-      "Cloud synchronization"
-    ]
   }
 ];
 
 export default projects;
-
