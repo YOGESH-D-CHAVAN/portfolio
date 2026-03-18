@@ -20,13 +20,13 @@ const PLACEHOLDER = 'https://via.placeholder.com/1200x800?text=Project+Preview';
 const projectsWithImages = projects.map(project => {
   let image;
   switch (project.id) {
-    case 1: image = eduimage; break;
-    case 2: image = money; break;
-    case 3: image = vaultImage; break;
-    case 4: image = college; break;
-    case 5: image = news; break;
-    case 6: image = notes; break;
-    case 7: image = vajrachat; break;
+    case 1: image = vajrachat; break; // Vajra Chat
+    case 2: image = eduimage; break;  // EduMedia
+    case 3: image = vaultImage; break; // Vault
+    case 4: image = notes; break;      // NoteNest
+    case 5: image = money; break;      // Money Manager
+    case 6: image = college; break;    // SVIT College Clone
+    case 7: image = news; break;       // QuickNews
     default: image = PLACEHOLDER;
   }
   return { ...project, image };
