@@ -6,7 +6,7 @@ export const projects = [
     category: "Real-Time Messaging",
     description: "A fast, secure, full-stack messaging platform inspired by WhatsApp. Features real-time messaging, WebRTC-powered audio and video calls, and media sharing, engineered for a smooth and familiar user experience.",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Socket.IO", "WebRTC", "Tailwind CSS"],
-    github: "https://github.com/YOGESH-D-CHAVAN/VajraChat",
+    github: "https://github.com/YOGESH-D-CHAVAN/InstaTalk",
     live: "https://lnkd.in/gG2Dn6x5",
     image: "../assets/images/Vajrachat.png",
     features: [
