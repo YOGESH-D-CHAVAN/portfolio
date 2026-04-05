@@ -16,25 +16,25 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-stone-50 pt-32 pb-20">
+    <div className="min-h-screen bg-stone-50 pt-24 md:pt-32 pb-20">
       <div className="container mx-auto px-6 max-w-6xl">
         
         {/* Hero Section */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-32">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-16 md:mb-32">
           <div className="lg:col-span-12 text-center max-w-4xl mx-auto">
              <span className="text-emerald-600 font-mono text-sm tracking-widest uppercase mb-4 block">The Biography</span>
-             <h1 className="text-6xl md:text-8xl font-black text-stone-900 mb-8 leading-tight">Driven by Code. Defined by <span className="text-emerald-600">Performance.</span></h1>
-             <p className="text-2xl text-stone-600 leading-relaxed max-w-3xl mx-auto">
+             <h1 className="text-4xl md:text-8xl font-black text-stone-900 mb-8 leading-tight">Driven by Code. Defined by <span className="text-emerald-600">Performance.</span></h1>
+             <p className="text-lg md:text-2xl text-stone-600 leading-relaxed max-w-3xl mx-auto">
                 I am Yogesh Chavan—a Software Engineer who believes that in the digital age, knowledge and speed are the only metrics that matter. 
              </p>
           </div>
         </section>
 
         {/* The Narrative */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-32">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-16 md:mb-32">
             <div className="lg:col-span-7 space-y-12">
                 <div>
-                    <h2 className="text-3xl font-bold text-stone-900 mb-6 flex items-center gap-4">
+                    <h2 className="text-2xl md:text-3xl font-bold text-stone-900 mb-6 flex items-center gap-4">
                         <span className="p-3 bg-emerald-100 text-emerald-600 rounded-2xl"><FaRocket /></span>
                         The Mission
                     </h2>
@@ -51,7 +51,7 @@ export default function AboutPage() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     {stats.map((stat, i) => (
                         <div key={i} className="p-8 bg-white rounded-[2rem] border border-stone-100 shadow-xl text-center">
                             <div className="text-4xl font-black text-emerald-600 mb-2">{stat.value}</div>
@@ -99,10 +99,10 @@ export default function AboutPage() {
         </section>
 
         {/* Education & Roots */}
-        <section className="bg-white rounded-[4rem] p-12 md:p-20 border border-stone-100 shadow-2xl">
+        <section className="bg-white rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-20 border border-stone-100 shadow-2xl">
             <div className="max-w-4xl">
                 <span className="text-emerald-600 font-mono text-sm tracking-widest uppercase mb-4 block">Foundations</span>
-                <h2 className="text-4xl font-bold text-stone-900 mb-12">Academic & Self-Taught Roots</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-12">Academic & Self-Taught Roots</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="space-y-4 p-8 bg-stone-50 rounded-3xl">
                         <FaGraduationCap size={32} className="text-emerald-600" />

@@ -14,6 +14,7 @@ const PageLoader = () => (
 );
 
 import LatestInsights from '../Components/Home/LatestInsights';
+import SpecialAchievement from '../Components/Home/SpecialAchievement';
 import FAQ from '../Components/Home/FAQ';
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
         <Projects project={projects} />
         <Experience />
         <LatestInsights />
+        <SpecialAchievement />
         <FAQ />
         <Contact />
       </Suspense>

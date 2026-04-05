@@ -24,7 +24,7 @@ export default function Header() {
   // Active Section Spy
   useEffect(() => {
     const handleScrollTop = () => {
-      if (window.scrollY < 100 && window.location.pathname === '/') {
+      if (window.scrollY < 120 && window.location.pathname === '/') {
         setActiveSection('home');
       }
     };
@@ -50,21 +50,23 @@ export default function Header() {
         .filter(el => el !== null);
 
       if (sectionElements.length > 0) {
+        // Optimized observer options for long sections
         observer = new IntersectionObserver(
           (entries) => {
             entries.forEach(entry => {
+              // Using intersectionRatio > 0 and entry.isIntersecting
+              // but also checking entry.boundingClientRect.top for more precise tracking
               if (entry.isIntersecting) {
-                // For long sections, even a small intersection is enough if it's the main thing
-                // But we can prioritize sections that occupy more of the viewport
-                if (entry.intersectionRatio > 0.1) {
+                // Priority: If the section's top is near the top of the viewport
+                if (entry.boundingClientRect.top < 300) {
                   setActiveSection(entry.target.id);
                 }
               }
             });
           },
           {
-            threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5],
-            rootMargin: "-20% 0px -40% 0px"
+            threshold: [0, 0.1, 0.2, 0.5],
+            rootMargin: "-10% 0px -70% 0px" // Focus more on the top of the viewport
           }
         );
         sectionElements.forEach(section => observer.observe(section));
