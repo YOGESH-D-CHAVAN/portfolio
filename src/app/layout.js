@@ -96,7 +96,7 @@ export default function RootLayout({ children }) {
       "User Experience Design"
     ],
     "sameAs": [
-      "https://github.com/Yogesh100-design/",
+      "https://github.com/YOGESH-D-CHAVAN/",
       "https://www.linkedin.com/in/yogesh-chavan-494196316/",
       "https://twitter.com/YogeshChavan",
       "https://instagram.com/YogeshChavan"

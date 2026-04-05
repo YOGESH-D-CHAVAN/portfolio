@@ -6,7 +6,7 @@ export const projects = [
     category: "Real-Time Messaging",
     description: "A fast, secure, full-stack messaging platform inspired by WhatsApp. Features real-time messaging, WebRTC-powered audio and video calls, and media sharing, engineered for a smooth and familiar user experience.",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Socket.IO", "WebRTC", "Tailwind CSS"],
-    github: "https://github.com/Yogesh100-design/VajraChat",
+    github: "https://github.com/YOGESH-D-CHAVAN/VajraChat",
     live: "https://lnkd.in/gG2Dn6x5",
     image: "../assets/images/Vajrachat.png",
     features: [
@@ -24,7 +24,7 @@ export const projects = [
     category: "EdTech Platform",
     description: "A comprehensive digital learning ecosystem designed to streamline education. EduMedia features structured study materials, interactive video lessons, and a robust notes management system. It bridges the gap between traditional learning and digital accessibility.",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
-    github: "https://github.com/Yogesh100-design/EduMedia-Hub",
+    github: "https://github.com/YOGESH-D-CHAVAN/EduMedia-Hub",
     live: "https://edumedia-hub-2.onrender.com",
     image: "../assets/images/Edumedia.webp",
     features: [
@@ -58,7 +58,7 @@ export const projects = [
     category: "Productivity",
     description: "A secure, cloud-based note-taking application designed for productivity. NoteNest allows users to organize their thoughts, save snippets, and access them from anywhere with a robust MERN backend.",
     techStack: ["React", "Node.js", "Express", "MongoDB", "JWT"],
-    github: "https://github.com/Yogesh100-design/Notenest",
+    github: "https://github.com/YOGESH-D-CHAVAN/Notenest",
     live: "",
     image: "../assets/images/notes.webp",
     features: [
@@ -75,7 +75,7 @@ export const projects = [
     category: "FinTech Utility",
     description: "A sophisticated financial tracking application that empowers users to manage their personal finances with precision. Built with a focus on data integrity, it provides deep insights into spending patterns through categorized expense tracking.",
     techStack: ["HTML", "CSS", "PHP", "MySQL", "Chart.js"],
-    github: "https://github.com/Yogesh100-design/MoneyMate",
+    github: "https://github.com/YOGESH-D-CHAVAN/MoneyMate",
     live: "https://moneymate-1-cacl.onrender.com/",
     image: "../assets/images/money.webp",
     features: [
@@ -109,7 +109,7 @@ export const projects = [
     category: "Content Aggregation",
     description: "A real-time news aggregation app that delivers global updates instantly. It provides users with a clean, distraction-free reading experience while offering categorized news filters.",
     techStack: ["React", "NewsAPI", "Context API", "CSS Modules"],
-    github: "https://github.com/Yogesh100-design/Quicknews",
+    github: "https://github.com/YOGESH-D-CHAVAN/Quicknews",
     live: "",
     image: "../assets/images/news.jpg",
     features: [

@@ -9,7 +9,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: FiGithub, href: 'https://github.com/Yogesh100-design/', label: 'GitHub' },
+    { icon: FiGithub, href: 'https://github.com/YOGESH-D-CHAVAN/', label: 'GitHub' },
     { icon: FiLinkedin, href: 'https://www.linkedin.com/in/yogesh-chavan-494196316/', label: 'LinkedIn' },
     { icon: FiMail, href: 'mailto:yogeshchavan1209@gmail.com', label: 'Email' },
   ];
