@@ -131,7 +131,7 @@ export default function RootLayout({ children }) {
 
       <body suppressHydrationWarning>
         <Providers>
-          <div className="min-h-screen bg-stone-50">
+          <div className="min-h-screen bg-stone-50 global-grid text-stone-800">
             <Toaster position="bottom-right" />
             <Header />
             <main>{children}</main>

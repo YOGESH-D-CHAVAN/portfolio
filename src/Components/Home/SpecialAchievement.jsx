@@ -6,15 +6,7 @@ import achievementImage from '../../assets/images/A2.webp';
 
 export default function SpecialAchievement() {
   return (
-    <section className="py-24 bg-stone-50 relative overflow-hidden">
-      {/* Background patterns */}
-      <div className="absolute top-0 right-0 w-full h-full opacity-[0.03] pointer-events-none">
-        <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 100h1000M0 200h1000M0 300h1000M0 400h1000" stroke="currentColor" strokeWidth="1" />
-          <path d="M100 0v1000M200 0v1000M300 0v1000M400 0v1000" stroke="currentColor" strokeWidth="1" />
-        </svg>
-      </div>
-
+    <section className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">

@@ -6,20 +6,8 @@ import aiCertImage from '../../assets/images/A1.jpeg';
 
 export default function AICertification() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      {/* Dynamic Background Patterns - Subtle for Light Mode */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
-        <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid-light" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid-light)" className="text-stone-900" />
-        </svg>
-      </div>
-
-      {/* Glowing Orbs - Softened for Light Mode */}
+    <section className="py-24 relative overflow-hidden">
+      {/* Soft Glows - Softened for Light Mode */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none animate-pulse" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-violet-500/5 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDelay: '2s' }} />
 
@@ -34,7 +22,7 @@ export default function AICertification() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="w-full lg:w-1/2 relative"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(79,70,229,0.1)] border-8 border-stone-50 group">
+              <div className="relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(79,70,229,0.1)] border-8 border-white group">
                 <Image
                   src={aiCertImage}
                   alt="Agentic AI Certification"
@@ -75,30 +63,30 @@ export default function AICertification() {
             >
               <div className="flex items-center gap-3 mb-8">
                 <span className="w-8 h-[2px] bg-indigo-600 rounded-full"></span>
-                <span className="text-indigo-600 font-mono text-sm tracking-widest uppercase font-bold">New Milestone</span>
+                <span className="text-indigo-600 font-mono text-sm tracking-widest uppercase font-bold">Certification</span>
               </div>
               
               <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-8 leading-tight">
                 Advanced <br />
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600">
-                  Agentic AI Certification.
+                  Agentic AI Mastery.
                 </span>
               </h2>
 
-              <div className="relative p-8 bg-stone-50 rounded-2xl border border-stone-100">
+              <div className="relative p-8 bg-white/50 backdrop-blur-sm rounded-2xl border border-white/80 shadow-sm">
                 <p className="text-lg md:text-xl text-stone-600 leading-relaxed">
-                  "Earned certification in <span className="text-indigo-600 font-semibold">Agentic AI</span> after an intensive 5-day specialized training. Mastered the architecture of autonomous AI agents, multi-agent orchestrations, and advanced reasoning frameworks."
+                  "Successfully completed the intensive 5-day professional certification in <span className="text-indigo-600 font-semibold">Agentic AI</span> provided by <span className="text-stone-900 font-bold">Aspiring Careers</span>. Mastered autonomous AI agent architectures, multi-agent system design, and advanced prompt engineering."
                 </p>
               </div>
 
               <div className="mt-12 grid grid-cols-2 gap-8 divide-x divide-stone-100">
                 <div className="pl-0">
-                  <p className="text-stone-400 text-[10px] uppercase tracking-widest font-bold mb-2">Duration</p>
-                  <p className="text-stone-900 font-bold">5 Days Intensive</p>
+                  <p className="text-stone-400 text-[10px] uppercase tracking-widest font-bold mb-2">Provider</p>
+                  <p className="text-stone-900 font-bold">Aspiring Careers</p>
                 </div>
                 <div className="pl-8">
-                  <p className="text-stone-400 text-[10px] uppercase tracking-widest font-bold mb-2">Focus</p>
-                  <p className="text-stone-900 font-bold">Autonomous Agents</p>
+                  <p className="text-stone-400 text-[10px] uppercase tracking-widest font-bold mb-2">Duration</p>
+                  <p className="text-stone-900 font-bold">5 Days Intensive</p>
                 </div>
               </div>
               
